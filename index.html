@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Rickey — AI Agent Orchestration</title>
+<meta name="description" content="Daniel Rickey — I design and run coordinated multi-agent AI development systems. Shipped product, live AWS infrastructure, public repos.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+<style>
+  :root {
+    --paper: #F7F8F7;
+    --ink: #1C2528;
+    --muted: #5A6B6A;
+    --accent: #176B5B;
+    --accent-soft: #176B5B22;
+    --line: #D8DEDC;
+    --card: #FFFFFF;
+    --mono-bg: #EDF1F0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121918;
+      --ink: #E4EAE8;
+      --muted: #93A5A1;
+      --accent: #43A38D;
+      --accent-soft: #43A38D26;
+      --line: #2A3634;
+      --card: #182120;
+      --mono-bg: #1D2827;
+    }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+    margin: 0;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+  .page { max-width: 46rem; margin: 0 auto; }
+
+  .mono, .eyebrow, .chip, .stamp, .node {
+    font-family: "SF Mono", "Cascadia Code", "Fira Mono", Consolas, "Liberation Mono", monospace;
+  }
+
+  h1, h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    text-wrap: balance;
+    line-height: 1.15;
+    margin: 0;
+  }
+  h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.01em; }
+  h2 { font-size: 1.45rem; font-weight: 600; margin-bottom: 1rem; }
+  h3 { font-size: 1.02rem; margin: 0 0 0.35rem; font-weight: 650; }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  header.hero { padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+  .hero .thesis {
+    font-size: 1.22rem;
+    line-height: 1.5;
+    margin: 1.25rem 0 0.75rem;
+    max-width: 40rem;
+  }
+  .hero .sub { color: var(--muted); margin: 0; max-width: 42rem; }
+
+  .contact-row {
+    display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem;
+    margin-top: 1.5rem; font-size: 0.92rem;
+  }
+  .contact-row a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .contact-row a:hover, .contact-row a:focus-visible { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  section { margin-top: 3rem; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.25rem 1.3rem 1.15rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .card p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+  .card p strong { color: var(--ink); font-weight: 600; }
+  .stamp {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.2rem;
+  }
+  .card > a { color: var(--accent); font-size: 0.9rem; text-decoration: none; margin-top: auto; padding-top: 0.5rem; }
+  .card > a:hover { text-decoration: underline; }
+  .card p a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .card p a:hover { border-bottom-color: var(--accent); }
+
+  /* fleet diagram */
+  .fleet {
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 6px;
+    padding: 1.75rem 1.25rem;
+    overflow-x: auto;
+  }
+  .fleet-inner { min-width: 34rem; display: flex; flex-direction: column; align-items: center; }
+  .node {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .node.quiet {
+    border-color: var(--line);
+    color: var(--muted);
+    background: transparent;
+  }
+  .trunk { width: 1px; height: 1.1rem; background: var(--line); }
+  .rail {
+    width: 76%; height: 1px; background: var(--line);
+    position: relative;
+  }
+  .agents {
+    display: flex; gap: 0.5rem; flex-wrap: nowrap;
+    justify-content: center; padding: 1.1rem 0;
+  }
+  .agents .node { font-size: 0.72rem; padding: 0.25rem 0.6rem; }
+  .fleet-caption {
+    font-size: 0.85rem; color: var(--muted);
+    margin: 1.4rem 0 0; text-align: center; max-width: 34rem;
+  }
+
+  ul.plain { padding-left: 1.1rem; margin: 0; display: flex; flex-direction: column; gap: 0.65rem; }
+  ul.plain li::marker { color: var(--accent); }
+  ul.plain li strong { font-weight: 600; }
+
+  .bg-list { display: flex; flex-direction: column; gap: 0.9rem; margin: 0; padding: 0; list-style: none; }
+  .bg-list li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; align-items: baseline; }
+  .bg-list .chip { font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .bg-list p { margin: 0; font-size: 0.95rem; }
+  @media (max-width: 540px) {
+    .bg-list li { grid-template-columns: 1fr; gap: 0.15rem; }
+    h1 { font-size: 2rem; }
+  }
+
+  footer {
+    margin-top: 3.5rem; padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  footer p { max-width: 38rem; }
+  footer .close { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-size: 1.25rem; line-height: 1.45; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">AI Agent Orchestration · Cloud Infrastructure · Remote (San Diego)</p>
+    <h1>Daniel Rickey</h1>
+    <p class="thesis">I run production work through a coordinated fleet of AI coding agents — designed, built, and taken to a paid product launch in two weeks.</p>
+    <p class="sub">Not a weekend demo: one orchestrating instance, fifteen-plus scoped project agents, shared activity logging, read-only monitoring, and staged automation rules — running on AWS I rebuilt from scratch this March, on top of self-hosted virtualization I've operated continuously since 2021.</p>
+    <div class="contact-row">
+      <a href="mailto:drsd73@gmail.com">drsd73@gmail.com</a>
+      <a href="https://www.linkedin.com/in/danielrickey">linkedin.com/in/danielrickey</a>
+      <a href="https://homelessbuilder.gumroad.com/l/solo-builders-meta-system">Published product ↗</a>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">Evidence</p>
+    <h2>Shipped, live, and verifiable</h2>
+    <div class="cards">
+      <div class="card">
+        <p class="stamp">Launched July 2026</p>
+        <h3>Solo Builder's Meta-System</h3>
+        <p>Paid guide + template pack teaching solo developers how to run multiple AI-assisted projects as one coherent practice. <strong>The operating manual for the system on this page</strong> — written from use, not theory. Purchase flow self-tested end to end.</p>
+        <a href="https://homelessbuilder.gumroad.com/l/solo-builders-meta-system">gumroad.com → Solo Builder's Meta-System</a>
+      </div>
+      <div class="card">
+        <p class="stamp">In production</p>
+        <h3>sandiegoai.help</h3>
+        <p>Static site (Eleventy) built and deployed on <strong>AWS S3 + CloudFront</strong>, Route&nbsp;53 DNS, SES custom-domain email — the storefront for my own AI consulting practice serving San Diego small businesses.</p>
+        <a href="https://sandiegoai.help">sandiegoai.help ↗</a>
+      </div>
+      <div class="card">
+        <p class="stamp">Active practice</p>
+        <h3>San Diego AI HELP</h3>
+        <p>AI consulting for small businesses: audit-driven service design, AI automation workflows, and a conversational intake system built on <strong>Lambda / API Gateway</strong>.</p>
+      </div>
+      <div class="card">
+        <p class="stamp">Public repos</p>
+        <h3>The system, in the open</h3>
+        <p>The read-only <a href="https://github.com/HomelessBuilder/monitor">ecosystem monitor</a>, the <a href="https://github.com/HomelessBuilder/devlog-engine">federated journal backend</a>, and the <a href="https://github.com/HomelessBuilder/project-dashboard">project dashboard</a> are public and browsable — descriptions, design docs, and commit history included.</p>
+        <a href="https://github.com/HomelessBuilder">github.com/HomelessBuilder ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The System</p>
+    <h2>What a coordinated agent fleet actually looks like</h2>
+    <div class="fleet">
+      <div class="fleet-inner">
+        <div class="node">orchestrator — tracks state, advises, onboards; executes nothing</div>
+        <div class="trunk"></div>
+        <div class="rail"></div>
+        <div class="agents">
+          <span class="node">client site</span>
+          <span class="node">paid product</span>
+          <span class="node">course platform</span>
+          <span class="node">journal</span>
+          <span class="node">+11 more</span>
+        </div>
+        <div class="rail"></div>
+        <div class="trunk"></div>
+        <div class="node quiet">shared activity log · read-only cron monitor</div>
+      </div>
+      <p class="fleet-caption">Each project runs its own scoped agent instance governed by a context file. A separate monitor observes the whole ecosystem with zero write permissions.</p>
+    </div>
+    <ul class="plain" style="margin-top:1.5rem">
+      <li><strong>Staged automation as a governing rule.</strong> Every workflow moves manual → prompted → drafted → autonomous, and never skips a stage. Guardrails are designed in before capability is turned up.</li>
+      <li><strong>Observability without authority.</strong> A cron-driven monitor reads git logs and key files across every repo and reports on ecosystem health — it can watch everything and change nothing.</li>
+      <li><strong>Documentation as a product.</strong> Every project carries its vision and context in version-controlled files an agent (or a new hire) can onboard from. The practice went from first commit to a sellable product in two weeks because it was written down as it was built.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">For Your Team</p>
+    <h2>What I do for an organization</h2>
+    <ul class="plain">
+      <li><strong>Stand up an agent-assisted engineering practice</strong> — context scoping, permission guardrails, review workflow, and the documentation that keeps agents effective as the team scales its use.</li>
+      <li><strong>Build and run the AWS underneath it</strong> — EC2, S3, Route&nbsp;53, CloudFront, Lambda, SES, IAM. Trained and consulted on AWS 2017–2021; rebuilt a production environment from a clean slate in 2026, including DNS and domain lifecycle management.</li>
+      <li><strong>Translate between the excited and the skeptical</strong> — explaining AI tooling in plain language to non-technical business owners is what my consulting practice runs on. That skill transfers directly to teams adopting agents unevenly.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Background</p>
+    <h2>Path here</h2>
+    <ul class="bg-list">
+      <li><span class="chip">2026 —</span><p><strong>Founder, San Diego Cloud Solutions</strong> — production AWS environment built from scratch (March 2026), AI automation services, and the agent-orchestration practice documented above.</p></li>
+      <li><span class="chip">2022 – 2025</span><p><strong>Operations supervisor, Vons (Albertsons)</strong> — inventory systems for $100K+ daily volume, team leadership, keyholder. Pandemic-era detour, run with process discipline.</p></li>
+      <li><span class="chip">2021 —</span><p><strong>Self-hosted cloud, continuous</strong> — designed and operate a private Linux virtualization platform (network segmentation, isolated VMs, self-hosted services), later rebuilt in a portable form factor. It's the environment everything on this page runs on.</p></li>
+      <li><span class="chip">2019 – 2021</span><p><strong>Cloud infrastructure consultant, Illumanonymous LLC</strong> — AWS deployments, web services, and custom email across a multi-domain client portfolio.</p></li>
+      <li><span class="chip">2015</span><p><strong>Cisco Live NOC “Dream Team”</strong> — competitively selected from the Cisco Networking Academy for a week-long paid deployment supporting the Network Operations Center across 2.5M sq ft of live convention space.</p></li>
+      <li><span class="chip">In progress</span><p><strong>Certifications:</strong> Claude Certified Architect – Foundations (Aug 2026) · CompTIA Security+ (Sep 2026) · AWS Solutions Architect Associate (Nov 2026).</p></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="close">If your team is trying to figure out how to actually work with coding agents — I've already made the mistakes, fixed them, and written the manual.</p>
+    <div class="contact-row">
+      <a href="mailto:drsd73@gmail.com">drsd73@gmail.com</a>
+      <a href="https://www.linkedin.com/in/danielrickey">linkedin.com/in/danielrickey</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
