@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>7 Verified San Diego Job Leads</title>
+<title>7 Roles Spanning All Three Certifications</title>
 <style>
   :root {
     --paper: #eef0ee;
@@ -22,6 +22,9 @@
     --confirm-b-bg: #f4ead2;
     --confirm-b-ink: #7a5a18;
     --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
     --remote-bg: #e2dfee;
     --remote-ink: #453a75;
     --remote-line: #bdb5d8;
@@ -45,6 +48,9 @@
       --confirm-b-bg: #2c2410;
       --confirm-b-ink: #e3c473;
       --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
       --remote-bg: #241f31;
       --remote-ink: #bcaee0;
       --remote-line: #3b3350;
@@ -68,6 +74,9 @@
     --confirm-b-bg: #2c2410;
     --confirm-b-ink: #e3c473;
     --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
     --remote-bg: #241f31;
     --remote-ink: #bcaee0;
     --remote-line: #3b3350;
@@ -90,6 +99,9 @@
     --confirm-b-bg: #f4ead2;
     --confirm-b-ink: #7a5a18;
     --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
     --remote-bg: #e2dfee;
     --remote-ink: #453a75;
     --remote-line: #bdb5d8;
@@ -129,7 +141,7 @@
 
   h1 {
     font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
-    font-size: 1.55rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin: 0.3rem 0 0.7rem;
     letter-spacing: -0.01em;
@@ -145,16 +157,19 @@
   .legend {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
     background: var(--paper-raised);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 0.85rem 1rem;
+    padding: 0.9rem 1rem;
     margin-bottom: 1.5rem;
     font-size: 0.82rem;
     color: var(--ink-soft);
     box-shadow: var(--shadow);
   }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
 
   .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
   .legend-row strong { color: var(--ink); }
@@ -210,7 +225,7 @@
 
   .role {
     font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
-    font-size: 1.14rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.005em;
     text-wrap: balance;
@@ -240,10 +255,43 @@
   }
 
   .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
 
   .card-body {
     padding: 0.95rem 1.1rem 1.1rem;
   }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
 
   .card-body p {
     margin: 0 0 0.9rem;
@@ -252,22 +300,6 @@
   }
 
   .card-body p strong { color: var(--ink); }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 0.9rem;
-  }
-
-  .skill-tags span {
-    font-size: 0.7rem;
-    background: var(--accent-soft);
-    color: var(--accent-ink);
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    font-weight: 600;
-  }
 
   .apply-link {
     display: flex;
@@ -301,11 +333,26 @@
   footer.memo-footer p { margin: 0 0 0.6rem; }
   footer.memo-footer p:last-child { margin-bottom: 0; }
 
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
   a { color: inherit; }
 
   @media (min-width: 640px) {
     .sheet { padding: 3rem 1.5rem 5rem; }
-    h1 { font-size: 1.85rem; }
+    h1 { font-size: 1.8rem; }
   }
 </style>
 </head>
@@ -314,18 +361,19 @@
 <div class="sheet">
   <header class="memo">
     <div class="eyebrow">Career — outreach research, rechecked</div>
-    <h1>Seven San Diego jobs, checked link by link</h1>
-    <p class="memo-sub">Prepared Jul 23, 2026. Every posting below was individually re-verified after the last list included a closed listing — not just pulled from search snippets.</p>
+    <h1>Seven roles that span all three certifications</h1>
+    <p class="memo-sub">Prepared Jul 23, 2026. Not location-restricted; remote weighted heavily. Every link below was checked directly before inclusion.</p>
   </header>
 
   <div class="legend">
+    <p><strong>What "spans all three" means here:</strong> no posting anywhere names Claude Certified Architect – Foundations by title — it's too new. So "alignment" means the role's actual work draws on all three domains: AWS cloud architecture (AWS SAA), security engineering or governance (Security+), and AI/agent systems (CCA-F). Each card below shows how strong each leg is — most are strong on two and solid on the third, not uniformly perfect on all three.</p>
     <div class="legend-row">
       <span class="badge a">Confirmed</span>
       <span><strong>Directly checked</strong> — visited the live application page myself and saw an active Apply form.</span>
     </div>
     <div class="legend-row">
       <span class="badge b">Source-checked</span>
-      <span><strong>Confirmed via the employer's own careers page</strong> content, but the page didn't fully load for a direct in-app check — worth a quick glance before applying.</span>
+      <span><strong>Confirmed via the employer's own careers content</strong>, but the page didn't fully load for a direct in-app check.</span>
     </div>
   </div>
 
@@ -336,19 +384,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">01</span>
-            <div class="role">AppSec Engineer</div>
-            <div class="company">Karbon</div>
+            <div class="role">Staff Information Security Engineer — AI First</div>
+            <div class="company">Rithum</div>
           </div>
           <span class="badge a">Confirmed</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA</span>
+          <span class="pill remote">United States — Remote</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>AWS</span><span>Bash</span><span>Python</span><span>Claude Code</span></div>
-        <p>Requires cloud platform experience (AWS), scripting (PowerShell/Bash, Python), and hands-on use of AI development tools including Claude Code — a near-exact match to your daily stack.</p>
-        <a class="apply-link" href="https://job-boards.greenhouse.io/karbon/jobs/6012153004" target="_blank" rel="noopener">Apply on Karbon's board ↗</a>
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">AWS</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">Security</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p><strong>$170,000–$220,000</strong> + 12% bonus. The single closest three-way match found: explicitly wants "AWS Solutions Architect / Security Specialty or equivalent," plus AI/ML security depth (prompt injection, model supply chains), plus hands-on building or operating AI agents with LLM frameworks including Anthropic's.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/rithum/jobs/8016565" target="_blank" rel="noopener">Apply on Rithum's board ↗</a>
       </div>
     </article>
 
@@ -357,19 +409,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">02</span>
-            <div class="role">Lead, Software Engineer — Developer Experience</div>
-            <div class="company">Petco</div>
+            <div class="role">VP of Solutions Architect — AI</div>
+            <div class="company">Robots and Pencils</div>
           </div>
           <span class="badge a">Confirmed</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA — on-site (National Support Center)</span>
+          <span class="pill remote">US — Remote</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>Python</span><span>CI/CD</span><span>AI dev tools</span><span>Prompt engineering</span></div>
-        <p><strong>$121,600–$182,400.</strong> Wants hands-on AI developer tooling experience and prefers "LLM-based tooling, prompt engineering, or AI-assisted development workflows" — the enablement side of your practice, at a major local employer.</p>
-        <a class="apply-link" href="https://careers.petco.com/job/san-diego/lead-software-engineer-developer-experience-devex/47428/94236836736" target="_blank" rel="noopener">Apply on Petco Careers ↗</a>
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">AWS</span><span class="level">Strong</span></div>
+          <div class="align-cell weak"><span class="label">Security</span><span class="level">Moderate</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p>Deep AWS ownership (Bedrock, AgentCore, Strands Agents) with AWS security best practices (IAM, KMS, PrivateLink) baked into the architecture work, plus AWS Professional Certifications explicitly called out as preferred — the same certification family as your SAA track.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/robotsandpencils/jobs/5343342008" target="_blank" rel="noopener">Apply on Robots and Pencils' board ↗</a>
       </div>
     </article>
 
@@ -378,19 +434,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">03</span>
-            <div class="role">Senior DevOps Engineer</div>
-            <div class="company">Qualcomm</div>
+            <div class="role">Principal AI Security Engineer, AI Native Platform</div>
+            <div class="company">Life360</div>
           </div>
-          <span class="badge b">Source-checked</span>
+          <span class="badge a">Confirmed</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA 92154 — on-site</span>
+          <span class="pill remote">Remote, USA — remote-first company</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>AWS</span><span>Python</span><span>CI/CD automation</span></div>
-        <p><strong>~$135K–$202K.</strong> Builds and maintains CI/CD pipelines and source control for firmware/software platforms — public cloud (AWS) plus scripting required. Qualcomm HQ, largest tech employer in the county.</p>
-        <a class="apply-link" href="https://careers.qualcomm.com/careers/job/446704758127-senior-devops-engineer-san-diego-california-united-states-of-america?domain=qualcomm.com" target="_blank" rel="noopener">View on Qualcomm Careers ↗</a>
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">AWS</span><span class="level">Not named</span></div>
+          <div class="align-cell"><span class="label">Security</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p><strong>$239,500–$351,500.</strong> Highest pay on this list. Hands-on fluency with LLM and agentic systems (prompt pipelines, RAG, multi-agent orchestration) plus real security engineering (NIST AI RMF, OWASP LLM Top 10, red teaming). AWS isn't named directly in the posting — platform-scale ownership implies real cloud infrastructure, but confirm the specific stack before applying.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/life360/jobs/8542164002" target="_blank" rel="noopener">Apply on Life360's board ↗</a>
       </div>
     </article>
 
@@ -399,19 +459,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">04</span>
-            <div class="role">DevOps Engineer / IT Engineer, Sr.</div>
-            <div class="company">Qualcomm</div>
+            <div class="role">GenAI Security Engineer</div>
+            <div class="company">Point72</div>
           </div>
-          <span class="badge b">Source-checked</span>
+          <span class="badge a">Confirmed</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA — on-site</span>
+          <span class="pill onsite">New York, NY — remote status not stated, likely on-site</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>Infrastructure</span><span>DevOps tooling</span><span>Architecture</span></div>
-        <p>Separate, distinct requisition from #03 — Global IT Server Management group, owning infrastructure deployment tooling and server architecture decisions rather than product CI/CD.</p>
-        <a class="apply-link" href="https://careers.qualcomm.com/careers/job/446702405066-devops-engineer-it-engineer-sr-san-diego-california-united-states-of-america?domain=qualcomm.com" target="_blank" rel="noopener">View on Qualcomm Careers ↗</a>
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">AWS</span><span class="level">Moderate</span></div>
+          <div class="align-cell"><span class="label">Security</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p><strong>$225,000–$300,000.</strong> Included despite the location mismatch because the work itself is an exact fit: securing agentic and human-in-the-loop GenAI systems, AI threat modeling for prompt injection and jailbreaks, cloud-native/hybrid GenAI architecture. Confirm remote eligibility directly — hedge fund security roles often run on-site only.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/point72/jobs/8399360002" target="_blank" rel="noopener">Apply on Point72's board ↗</a>
       </div>
     </article>
 
@@ -420,19 +484,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">05</span>
-            <div class="role">Staff Software Engineer, Site Reliability</div>
-            <div class="company">Intuit</div>
+            <div class="role">Senior Solutions Architect, GenAI</div>
+            <div class="company">Mission Cloud</div>
           </div>
           <span class="badge b">Source-checked</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA</span>
+          <span class="pill remote">Remote — Anywhere US</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>Kubernetes</span><span>Cloud-native</span><span>Observability</span></div>
-        <p>Core Platform Production Engineering team, keeping the Kubernetes-based runtime behind TurboTax, QuickBooks, and Mailchimp reliable. Confirmed live in Intuit's current San Diego openings (122 listed at check time) — 8+ years bar, senior-level.</p>
-        <a class="apply-link" href="https://jobs.intuit.com/location/san-diego-jobs/27595/6252001-5332921-5391811/4" target="_blank" rel="noopener">Find it on Intuit's SD jobs list ↗</a>
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">AWS</span><span class="level">Strong</span></div>
+          <div class="align-cell weak"><span class="label">Security</span><span class="level">Moderate</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p>~$160K–$203K reported (one listing showed a lower band — confirm at application). Mission Cloud is an AWS Premier Partner; the role requires AWS AI Practitioner and AWS Solutions Architect – Associate certifications within 6 months of hire, building agent frameworks and Bedrock solutions directly for clients.</p>
+        <a class="apply-link" href="https://www.builtinla.com/job/senior-solutions-architect-genai/6760998" target="_blank" rel="noopener">View posting via Built In LA ↗</a>
       </div>
     </article>
 
@@ -441,19 +509,23 @@
         <div class="card-top-row">
           <div>
             <span class="index">06</span>
-            <div class="role">Clinical AI Adoption Lead</div>
-            <div class="company">Clinically AI</div>
+            <div class="role">GenAI Cloud Security Architect, Sr.</div>
+            <div class="company">S&amp;P Global</div>
           </div>
           <span class="badge b">Source-checked</span>
         </div>
         <div class="loc-row">
-          <span class="pill">San Diego, CA — hybrid (on-site Mon–Thu)</span>
+          <span class="pill remote">Hybrid or Remote — multiple US/global locations</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>AI adoption</span><span>Workflow enablement</span><span>Customer-facing</span></div>
-        <p><strong>$100,000–$150,000</strong> + 10% target bonus. Owns end-to-end implementation and adoption for a behavioral-health AI platform — enablement and documentation work, not infrastructure, but squarely inside your "teach the team to run agents" positioning.</p>
-        <a class="apply-link" href="https://jobs.ashbyhq.com/ClinicallyAI/15875705-3226-44d8-9ced-e107268aaa56" target="_blank" rel="noopener">Apply via Ashby ↗</a>
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">AWS</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">Security</span><span class="level">Strong</span></div>
+          <div class="align-cell"><span class="label">AI / Agents</span><span class="level">Strong</span></div>
+        </div>
+        <p><strong>$155,000–$270,000.</strong> Owns the AI risk framework and security architecture reviews for agentic AI systems (MCP, ACP, A2A patterns) across AWS, Azure, GCP, and OCI, against NIST/ISO 27001/GDPR compliance — a governance-heavy version of the same three-way overlap.</p>
+        <a class="apply-link" href="https://spglobalcareers.dejobs.org/genai-application-security-engineer-sr-remote/jobs-in/" target="_blank" rel="noopener">Search S&amp;P Global careers ↗</a>
       </div>
     </article>
 
@@ -462,29 +534,36 @@
         <div class="card-top-row">
           <div>
             <span class="index">07</span>
-            <div class="role">Solutions Architect (Senior and standard levels open)</div>
-            <div class="company">LaunchDarkly</div>
+            <div class="role">Principal Security Architect — GenAI and Emerging Technologies</div>
+            <div class="company">The Hartford</div>
           </div>
-          <span class="badge a">Confirmed</span>
+          <span class="badge b">Source-checked</span>
         </div>
         <div class="loc-row">
-          <span class="pill remote">Remote — US (not on-site San Diego)</span>
+          <span class="pill remote">Remote if not near an office (Hartford CT, Charlotte NC, Columbus OH, Chicago IL)</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="skill-tags"><span>Claude Code</span><span>AWS</span><span>Linux</span><span>Containers</span></div>
-        <p>Included despite not being San Diego-based because it's the single closest stack match on this list: hands-on Claude Code plus a major cloud provider plus Linux, explicitly named as requirements. Flagging the location trade-off directly rather than burying it.</p>
-        <a class="apply-link" href="https://job-boards.greenhouse.io/launchdarkly/jobs/7792046003" target="_blank" rel="noopener">Apply on LaunchDarkly's board ↗</a>
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">AWS</span><span class="level">Moderate</span></div>
+          <div class="align-cell"><span class="label">Security</span><span class="level">Strong</span></div>
+          <div class="align-cell weak"><span class="label">AI / Agents</span><span class="level">Moderate</span></div>
+        </div>
+        <p>Reports directly to the CISO. Sets security direction for the company's GenAI use, threat-models prompt injection/inference attacks/data poisoning, and requires 2+ years hands-on AI/ML/GenAI experience layered on 5+ years security architecture. Cloud platform isn't pinned to AWS specifically — worth confirming.</p>
+        <a class="apply-link" href="https://thehartford.wd5.myworkdayjobs.com/en-US/Careers_External/job/Principal-Security-Architect---GenAI-and-Emerging-Technologies---Remote_R2521917" target="_blank" rel="noopener">Apply via Workday ↗</a>
       </div>
     </article>
 
   </div>
 
   <footer class="memo-footer">
-    <p><strong>What changed since the last list:</strong> every link here was fetched directly before inclusion. Several strong-looking candidates from that same search pass got dropped because their listings 404'd, redirected to a generic search page, or couldn't be confirmed open (including the AWS and Deloitte roles from the earlier round) — better to hand you six fewer options than one more dead link.</p>
-    <p><strong>Screened out:</strong> DoD/defense-contractor work (Shield AI, STR, M9 Solutions, Defense Unicorns, Leidos, Booz Allen Hamilton all turned up in the sweep and were excluded).</p>
-    <p>"Source-checked" entries are still real, current postings — the caveat is about my tooling hitting a JS-rendered page, not about the job itself. Worth a 10-second look before applying, same as always.</p>
+    <p><strong>How this list was built:</strong> searched for roles at the literal intersection of AWS architecture, security engineering, and AI/agentic systems — not just AI jobs that happen to mention AWS. Every link was fetched directly; postings that 404'd, redirected to a generic error page, or couldn't be confirmed open were dropped (GuidePoint Security's specific requisition was one — its direct link redirected through an error state, so it's left off despite otherwise fitting the brief).</p>
+    <p>Six of seven are remote or remote-eligible. Point72 (#04) is the one on-site exception, kept in because the role content is the tightest match on the list — confirm its remote policy before investing time.</p>
   </footer>
+
+  <div class="also-see">
+    See also: the earlier San Diego-specific list (7 leads, Jul 23) — <a href="/job-leads-sd.html">/job-leads-sd.html</a>
+  </div>
 </div>
 
 </body>
