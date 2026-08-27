@@ -213,6 +213,11 @@
     <h2>Shipped, live, and verifiable</h2>
     <div class="cards">
       <div class="card">
+        <p class="stamp">Shipped Aug 2026</p>
+        <h3>Live browser terminal (meta-system-2-0)</h3>
+        <p>A browser-based operations console with a <strong>real interactive terminal</strong> — actual pty processes bridged over authenticated WebSockets, rendered client-side with xterm.js. Session state persists via tmux, so a running task survives a closed browser tab <em>and</em> a full backend restart. Security hardening (Origin + token validation on the WebSocket handshake) verified against live rejection tests, not just read from code.</p>
+      </div>
+      <div class="card">
         <p class="stamp">Launched July 2026</p>
         <h3>Solo Builder's Meta-System</h3>
         <p>Paid guide + template pack teaching solo developers how to run multiple AI-assisted projects as one coherent practice. <strong>The operating manual for the system on this page</strong>, written from use, not theory. Built and launched inside my first month on Claude Code, purchase flow self-tested end to end.</p>
@@ -263,6 +268,7 @@
       <li><strong>Staged automation as a governing rule.</strong> Every workflow moves manual → prompted → drafted → autonomous, and never skips a stage. Guardrails are designed in before capability is turned up.</li>
       <li><strong>Observability without authority.</strong> A cron-driven monitor reads git logs and key files across every repo and reports on ecosystem health: it can watch everything and change nothing.</li>
       <li><strong>Documentation as a product.</strong> Every project carries its vision and context in version-controlled files an agent (or a new hire) can onboard from. The practice went from first commit to a sellable product in two weeks because it was written down as it was built.</li>
+      <li><strong>Holds architectural boundaries under real pressure.</strong> When a new subsystem needed to persist state, the obvious shortcut was breaking an existing single-writer invariant. Instead: three independent agents evaluated the tradeoffs, the boundary held, and the new state landed as a small scoped exception instead of a precedent.</li>
     </ul>
   </section>
 
