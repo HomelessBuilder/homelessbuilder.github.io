@@ -210,12 +210,18 @@
 
   <section>
     <p class="eyebrow">Evidence</p>
-    <h2>Shipped, live, and verifiable</h2>
+    <h2>Built, live, and verifiable</h2>
     <div class="cards">
       <div class="card">
-        <p class="stamp">Shipped Aug 2026</p>
+        <p class="stamp">Active build · Jul–Aug 2026</p>
         <h3>Live browser terminal (meta-system-2-0)</h3>
-        <p>A browser-based operations console with a <strong>real interactive terminal</strong>: actual pty processes bridged over authenticated WebSockets, rendered client-side with xterm.js. Session state persists via tmux, so a running task survives a closed browser tab <em>and</em> a full backend restart. Security hardening (Origin + token validation on the WebSocket handshake) verified against live rejection tests, not just read from code.</p>
+        <p>A browser-based operations console with a <strong>real interactive terminal</strong>: actual pty processes bridged over authenticated WebSockets, rendered client-side with xterm.js. Session state persists via tmux, so a running task survives a closed browser tab <em>and</em> a full backend restart. Security hardening (Origin + token validation on the WebSocket handshake) verified against live rejection tests, not just read from code. Ten-plus panes shipped on a near-weekly cadence through August, proving the module pattern generalizes past its first build.</p>
+      </div>
+      <div class="card">
+        <p class="stamp">Reversed &amp; rebuilt · Jul 2026</p>
+        <h3>Logging backend (devlog-engine)</h3>
+        <p>Chose MySQL for the shared activity log every project writes to, then challenged that choice with an independent review before building further. The panel came back unanimous for SQLite — the call I'd otherwise have shipped with didn't survive the check. Rebuilt the schema from a real 88-entry historical dataset and migrated it live, catching and fixing two real bugs mid-migration.</p>
+        <a href="https://github.com/HomelessBuilder/devlog-engine">github.com → devlog-engine</a>
       </div>
       <div class="card">
         <p class="stamp">Launched July 2026</p>
