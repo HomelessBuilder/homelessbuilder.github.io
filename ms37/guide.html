@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Meta-System 3.7 Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">&larr; Meta-System 3.7</a>
+  <span class="nav-links"><a href="onboarding.html">Onboarding interview</a><span class="here">User guide</span></span>
+</nav>
+<main>
+<h1>Meta-System 3.7 &mdash; User Guide</h1>
+<p class="lede">What Meta-System is, how its parts fit together, and how to use it day to day.</p>
+
+<div class="status">
+  <span class="status-label">About this guide</span>
+  <p>No official 3.7 guide exists yet. This one is adapted from the 3.0 guide, the one written for the original install, and keeps only what describes how the system works. Anything tied to the original owner's own projects, history, or accounts has been removed. A few 3.0 features depend on tools a new install won't have; where that matters, this guide says so.</p>
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <ul>
+    <li><a href="#what">What Meta-System is</a></li>
+    <li><a href="#v37">What 3.7 is for</a></li>
+    <li><a href="#truth">Where things are recorded</a></li>
+    <li><a href="#interface">The screen: panes and workspaces</a></li>
+    <li><a href="#panes">Pane types</a></li>
+    <li><a href="#identity">Who am I talking to?</a></li>
+    <li><a href="#logs">The decision log and the idea bank</a></li>
+    <li><a href="#starting">Starting, stopping, and reboots</a></li>
+    <li><a href="#durability">What survives what</a></li>
+    <li><a href="#rules">The rules every session follows</a></li>
+    <li><a href="#practices">Good habits</a></li>
+    <li><a href="#limitations">Known limitations</a></li>
+    <li><a href="#install">Installing</a></li>
+  </ul>
+</div>
+
+<h2 id="what">What Meta-System is</h2>
+<p>Meta-System is a working environment where the tools built in it get used to build the next tools. It has three layers. It helps to keep them separate.</p>
+<ul>
+  <li><strong>The practice.</strong> A set of Claude Code sessions with defined roles. An <em>overseer</em> session sits at the top level. It tracks, advises, and coordinates across everything. Each project gets its own session, working inside that project's folder under that project's own instructions. Rules that bind every session live in one top-level instruction file, <code>CLAUDE.md</code>, and reach every project automatically.</li>
+  <li><strong>The knowledge core.</strong> A small database on your computer, <code>devlog.db</code>, run by a companion tool called devlog-engine. It is the official record: the work journal, decisions, findings, and the project list. Some familiar-looking text files, like <code>DECISION-LOG.md</code>, are <em>generated</em> from it rather than written by hand.</li>
+  <li><strong>The working screen.</strong> A browser app that puts live terminals, Claude chats, session history, the journal, decisions, ideas, and project status on one screen, in a layout you arrange, instead of a pile of separate windows.</li>
+</ul>
+<p>Two principles shape the rest:</p>
+<ul>
+  <li><strong>Local means internal.</strong> Your data and tools run on your own computer, with no cloud dependency.</li>
+  <li><strong>Documentation is part of the product.</strong> A decision that exists only in a chat's scrollback counts as a failure. That's why so much of this guide is about where things get written down.</li>
+</ul>
+
+<h2 id="v37">What 3.7 is for</h2>
+<p>3.0 is the original install, built on and around its owner's own work. 3.7 is a second, separate line. Its direction was <strong>confirmed by the owner on 2026-09-24</strong>. In the owner's words:</p>
+<blockquote>The end goal of ms3.7 is to become a system for other purposes by using the best of what we been developing from the beginning with Meta-System.</blockquote>
+<p>It is meant to follow "the same philosophical functionality" as 3.0 without being tied to the owner's identity or backstory. The directions it is meant to serve are a version a stranger can install, a version that doesn't depend on one particular AI tool, a cloud-hosted version, and possibly others.</p>
+<p>3.7 starts empty on purpose. No logs, decisions, or ideas are copied over from 3.0.</p>
+<h3>How improvements reach 3.7</h3>
+<p>Fixes are still made in 3.0 first. Before one is carried to 3.7, it has to pass one test:</p>
+<blockquote>Is this a fix to how the system works, or to how the owner's own system works?</blockquote>
+<p>Fixes to how the system works carry over: panes, sessions, restarting after a reboot, logging. Anything tied to the owner's identity, history, projects, or accounts stays in 3.0, or carries over only as a generic version.</p>
+
+<h2 id="truth">Where things are recorded</h2>
+<p>This is the most useful single thing to know. When two places disagree, the "official record" column wins.</p>
+<div class="table-wrap"><table>
+  <tr><th>Thing</th><th>Official record</th><th>Where you see it</th></tr>
+  <tr><td>Journal (what was built and why)</td><td>The database</td><td>Review pane</td></tr>
+  <tr><td>Decisions</td><td>The database; <code>DECISION-LOG.md</code> is generated from it</td><td>Decision Log pane, or the file</td></tr>
+  <tr><td>Ideas</td><td>The idea-bank file, <code>IDEA-LOG.md</code> (the database keeps a copy)</td><td>Idea Bank pane, or the file</td></tr>
+  <tr><td>Findings (worth-keeping discoveries)</td><td>The database</td><td>Notes pane</td></tr>
+  <tr><td>Project list</td><td>The database</td><td>Projects pane</td></tr>
+  <tr><td>Your screen layout</td><td>A private file the app keeps</td><td>The app itself; saved as you arrange it</td></tr>
+  <tr><td>Past Claude conversations</td><td>Claude Code's own transcript files</td><td>Sessions pane</td></tr>
+</table></div>
+
+<h2 id="interface">The screen: panes and workspaces</h2>
+<p>Everything on screen is a <strong>pane</strong>. A terminal is a pane, a chat is a pane, and so is the decision log. You can have two terminals, or two decision-log views, side by side. Panes can be tiled, resized, and stacked as tabs however you like.</p>
+<p>The screen has two regions:</p>
+<ul>
+  <li>The <strong>global area</strong> holds the overseer's chat. It stays put no matter which workspace you're in.</li>
+  <li>The <strong>workspace area</strong> holds everything else, and it changes when you switch workspaces.</li>
+</ul>
+<p>A <strong>workspace</strong> is a whole saved layout: which panes are open and how they're arranged. You can keep several, for example one per project, and switch between them. Switching hides and restores. It doesn't close anything.</p>
+<h3>Top bar</h3>
+<div class="table-wrap"><table>
+  <tr><th>Control</th><th>What it does</th></tr>
+  <tr><td>Workspace switcher</td><td>Move between named workspaces.</td></tr>
+  <tr><td>＋ / ✎ / ✕</td><td>New, rename, or close a workspace. You can't close the last one.</td></tr>
+  <tr><td>＋ pane</td><td>Add a pane of any type to the current workspace.</td></tr>
+  <tr><td>＋ persona</td><td>Add a chat pane with a particular persona. Each one starts its own Claude conversation.</td></tr>
+  <tr><td>⚙</td><td>Choose which pane types show up in the ＋ pane menu.</td></tr>
+</table></div>
+<p>Each group of panes also has a <strong>Move to workspace…</strong> button that sends a pane to another workspace without interrupting it. Your layout is saved on the computer running the system, not in the browser, so it survives a lost browser profile. More than one browser tab can have the app open at once, and they stay in sync.</p>
+
+<h2 id="panes">Pane types</h2>
+<h3>Terminal</h3>
+<p>A real, live terminal. Closing the pane or the browser tab only <em>hides</em> it. Whatever was running keeps going in the background. The <strong>End Session</strong> button at the top of the pane actually stops it. Use that when you mean to stop something, not just put it away.</p>
+<p>Each terminal pane remembers how to pick up where it left off. If a Claude session was running in it, it remembers that conversation. Otherwise it remembers which folder you were in. After a reboot, the pane reopens and resumes on its own.</p>
+
+<h3>Chat and personas</h3>
+<p>A real Claude Code conversation in a pane. Its history reloads when you come back to it, and it also appears in the Sessions pane like any other session.</p>
+<p>The global chat is the <strong>overseer</strong>. Other chat panes come from the ＋ persona menu. A <strong>persona</strong> is a short instruction file that gives a chat a particular stance or job. Each persona is a file in the app's personas folder, and adding a file there adds a persona to the menu.</p>
+<div class="status">
+  <span class="status-label">Limitation</span>
+  <p>Chat panes can edit files, but they can't run commands. Any action that needs your approval is quietly refused, because the chat pane has no approve or deny button yet. For work that needs to run commands, open a Terminal pane and start <code>claude</code> there.</p>
+</div>
+
+<h3>Sessions</h3>
+<p>Two tabs. <strong>Live</strong> lists every Claude Code session running on the computer right now. <strong>Past</strong> lets you browse and search earlier ones. Both can show a whole conversation, and both have a <strong>Resume</strong> button that reopens the session in a new terminal pane. Plain terminals with no Claude in them don't appear here.</p>
+
+<h3>Watch and Settings</h3>
+<p>Watch runs health checks when you open it. It also drives the <strong>sprawl guard</strong>, a banner that lists sessions that have sat idle for a while (20 minutes by default) along with unsaved changes, so forgotten work doesn't pile up. Settings is where you adjust the guard.</p>
+
+<h3>Review, Notes, and Projects</h3>
+<p><strong>Review</strong> is the work journal. You can browse and search it, and add an entry. <strong>Notes</strong> shows saved findings and is read-only. <strong>Projects</strong> shows each tracked project and its current state. On a fresh install these start empty.</p>
+
+<h3>Decision Log and Idea Bank</h3>
+<p>These are covered in <a href="#logs">their own section</a> below.</p>
+
+<h3>Writing Style</h3>
+<p>Point it at a folder of your own writing, and it produces a single document describing your voice and style. Unlike every other pane, this one makes a real paid call to Claude and can take a minute or more.</p>
+
+<h3>Browser</h3>
+<p>A simple built-in web view for local pages. It has no back or forward buttons, it can't open files straight from disk, and sites that refuse to be embedded show up blank.</p>
+
+<h2 id="identity">Who am I talking to?</h2>
+<p>Inside the app it's easy to assume every pane is the same assistant. They aren't. Claude Code decides who a session is from the <code>CLAUDE.md</code> instruction files in the folder it starts in, plus every folder above that one.</p>
+<div class="table-wrap"><table>
+  <tr><th>Where the session runs</th><th>Who it is</th></tr>
+  <tr><td>The global chat</td><td>The overseer</td></tr>
+  <tr><td>A persona chat</td><td>Whichever persona you picked</td></tr>
+  <tr><td>A terminal at the top-level folder</td><td>The overseer, from the top-level <code>CLAUDE.md</code></td></tr>
+  <tr><td>A terminal inside a project's folder</td><td>That project's own session, still bound by the top-level rules</td></tr>
+</table></div>
+<p>A rule of thumb: questions that cut across projects go to the overseer, and a project's own build decisions go to that project's session. If you're not sure who you have, ask it. "What are you, and which pane are you running in?" is a normal, useful question.</p>
+
+<h2 id="logs">The decision log and the idea bank</h2>
+<h3>Decision log</h3>
+<p>Each decision is recorded with its reasoning, what it assumes, what outcome is expected, and when to check back on it. Later, a <em>Results</em> line records how it actually turned out. Record a decision when it's made, not afterwards from memory.</p>
+<p>In the Decision Log pane, <strong>+ New</strong> and <strong>Edit</strong> write to the database, and the database then regenerates <code>DECISION-LOG.md</code>. <strong>Don't edit that file by hand.</strong> If someone does, the next save still lands in the database, but the file isn't overwritten. The pane shows a warning instead of silently discarding your edit, and a recovery command brings the hand edit back in.</p>
+<h3>Idea bank</h3>
+<p>A place to catch ideas that arrive at the wrong moment. Adding one should take almost no effort, and any session may add one without asking. The <strong>+ Add</strong> button adds a new numbered entry to <code>IDEA-LOG.md</code>.</p>
+<p>The idea bank is <strong>add-only</strong>. There's no edit button, by design. To refine an idea, add a new entry that replaces the old one. The history stays intact.</p>
+
+<h2 id="starting">Starting, stopping, and reboots</h2>
+<p>The app runs as a small server on the same computer, and you open it in a browser there. It only accepts connections from that computer. Opening it requires a private link that includes a secret access code. Keep that link to yourself. It stays the same across restarts, so a bookmark keeps working.</p>
+<p><strong>It starts itself when the computer boots.</strong> After a reboot or a crash, the server comes back on its own and reloads your last layout. There are also start and stop scripts in the app's folder if you ever need to control it by hand. Stopping the server doesn't stop what's running in your terminals.</p>
+
+<h2 id="durability">What survives what</h2>
+<div class="table-wrap"><table>
+  <tr><th>If this happens</th><th>What you get</th></tr>
+  <tr><td>You close the browser tab</td><td>Safe. Terminals keep running, and the layout comes back when you reopen.</td></tr>
+  <tr><td>You lose your browser profile</td><td>Safe. The layout is saved on the computer, not in the browser.</td></tr>
+  <tr><td>The app's server restarts</td><td>Terminals keep running on their own and reconnect on the next page load.</td></tr>
+  <tr><td>The computer reboots or crashes</td><td>The server restarts on its own and loads your saved layout. Each terminal pane reopens and resumes its Claude conversation or returns to its folder. <strong>What was on screen, the scrollback, is lost.</strong></td></tr>
+  <tr><td>The app won't load</td><td>Your terminal sessions and Claude conversations can still be reached from an ordinary terminal. Nothing is lost just because the screen is down.</td></tr>
+</table></div>
+
+<h2 id="rules">The rules every session follows</h2>
+<p>The top-level <code>CLAUDE.md</code> sets an authority contract that every session obeys, including every pane in the app. In short:</p>
+<ul>
+  <li><strong>Free to do without asking:</strong> read, analyze, advise, and draft; add to the idea bank; record decisions; create or edit files you asked for in the current conversation.</li>
+  <li><strong>Asks you first:</strong> any commit (saving work into version history); any file deletion; installs, configuration, and scheduled-task changes; changing anything you edited by hand; anything that leaves the computer; starting work beyond the step you asked for.</li>
+  <li><strong>Verify before committing:</strong> actually run it or look at it, and confirm the result matches what was intended, not just that the change looks right.</li>
+  <li><strong>Verify before claiming something is absent:</strong> no "that doesn't exist" or "that was never done" without first searching the full records, and showing what was searched and what was found.</li>
+  <li><strong>Your word about your own history and intent is final.</strong> When you correct a fact about your own work, the session applies it. It doesn't argue from an old record.</li>
+</ul>
+<p>Talking is the default. Before anything with real consequences, a session should check whether you want discussion, advice, a plan, or action.</p>
+
+<h2 id="practices">Good habits</h2>
+<ul>
+  <li><strong>One session owns a problem.</strong> When something breaks, pick one session to handle it. Several sessions diagnosing the same thing without seeing each other does more damage than the original fault.</li>
+  <li><strong>Know which session you're asking</strong> before you ask it to decide something.</li>
+  <li><strong>Write decisions down when they're made.</strong></li>
+  <li><strong>Check before assuming something is lost.</strong> After a crash, data has usually survived. Look before concluding otherwise.</li>
+  <li><strong>Close what you're done with.</strong> The sprawl guard will tell you what's idle, and End Session really stops a terminal.</li>
+</ul>
+
+<h2 id="limitations">Known limitations</h2>
+<ul>
+  <li>Terminal scrollback doesn't survive a reboot. The sessions come back, but what was on screen doesn't.</li>
+  <li>A terminal pane can freeze without reconnecting. Reloading the page fixes it, and nothing running inside is lost.</li>
+  <li>Chat panes can't run commands, because they have no approval button yet.</li>
+  <li>Only one global, all-workspace pane is possible.</li>
+  <li>The Sessions pane shows Claude sessions only, not plain terminals.</li>
+  <li>The browser pane has no back or forward and can't open files straight from disk.</li>
+  <li>Some panes read from companion tools the original install has. On a new install they may show little or nothing.</li>
+  <li>The <a href="onboarding.html">onboarding interview</a> is not connected to 3.7 yet.</li>
+</ul>
+
+<h2 id="install">Installing</h2>
+<div class="status">
+  <span class="status-label">Not published here</span>
+  <p><strong>Step-by-step install instructions exist, but they aren't published on this page.</strong> This section describes what an install consists of. It isn't a set of instructions to follow.</p>
+</div>
+<p>A working 3.7 install today is made of:</p>
+<ul>
+  <li><strong>The Meta-System app</strong> (the <code>meta-system-3-0</code> code), which is the browser screen and its server.</li>
+  <li><strong>devlog-engine, with its <code>devlog.db</code> database</strong>, which is the knowledge core.</li>
+  <li><strong>A baseline set of files:</strong> a top-level <code>CLAUDE.md</code>, a <code>DECISION-LOG.md</code>, and an idea bank.</li>
+  <li><strong>The server set to start automatically</strong> when the computer boots.</li>
+</ul>
+<p>It also needs Claude Code itself installed and signed in on the computer.</p>
+</main>
+<footer>
+  <p>Meta-System 3.7 &mdash; user guide, adapted 2026-09-25 from the 3.0 guide. <a href="onboarding.html">&larr; Onboarding interview</a></p>
+</footer>
+</body>
+</html>

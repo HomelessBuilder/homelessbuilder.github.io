@@ -1,0 +1,288 @@
+:root {
+  --bg: #faf7f2;
+  --bg-raised: #ffffff;
+  --text: #262220;
+  --text-dim: #5c5450;
+  --accent: #8a3324;
+  --accent-soft: #b8664f;
+  --border: #e2d9cd;
+  --field-bg: #f3ede2;
+  --link: #8a3324;
+  --warn-bg: #fbf1dc;
+  --warn-line: #d9b76a;
+  --warn-ink: #6e5116;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "SF Mono", "Cascadia Code", "Fira Mono", Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1815;
+    --bg-raised: #232019;
+    --text: #ece5da;
+    --text-dim: #b3a89b;
+    --accent: #e0a37b;
+    --accent-soft: #c98a63;
+    --border: #3a332b;
+    --field-bg: #262019;
+    --link: #e0a37b;
+    --warn-bg: #2b2415;
+    --warn-line: #7a6330;
+    --warn-ink: #e8cf95;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.65;
+  font-size: 18px;
+  overflow-wrap: break-word;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+}
+
+a { color: var(--link); }
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.topnav a { color: var(--link); text-decoration: none; }
+.topnav a:hover { text-decoration: underline; }
+.topnav .here { color: var(--text-dim); }
+
+.nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 1.5rem 0 1rem;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  margin: 2.5rem 0 1rem;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  margin: 1.75rem 0 0.5rem;
+  color: var(--text);
+}
+
+p { margin: 0 0 1rem; }
+
+strong { color: var(--accent-soft); font-weight: 600; }
+
+em { font-style: italic; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--field-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.lede { font-size: 1.05rem; color: var(--text-dim); }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 1.5rem 0 -0.75rem;
+}
+
+ul, ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.4rem; }
+
+blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-soft);
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.toc {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 1.5rem 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+.toc-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* Numbered question cards on the onboarding page */
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 0.25rem;
+  margin-bottom: 1rem;
+}
+.card .num {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.card h3 { margin-top: 0; }
+
+/* Honest-status callout */
+.status {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 1.5rem 0;
+  color: var(--text);
+}
+.status .status-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--warn-ink);
+  margin-bottom: 0.4rem;
+}
+.status strong { color: var(--warn-ink); }
+
+.note {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* Tables scroll inside their own box so the page never scrolls sideways */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+tr:last-child td { border-bottom: none; }
+th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--field-bg);
+}
+
+/* Landing page link cards, same shape as the-whole-account's list */
+.era-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.era-list a {
+  display: block;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+.era-list a:hover { border-color: var(--accent-soft); }
+.era-list .num {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.era-list .desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-family: var(--sans);
+  margin-top: 0.25rem;
+}
+
+footer {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 480px) {
+  body { font-size: 17px; }
+  main, .topnav, footer { padding-left: 1rem; padding-right: 1rem; }
+  h1 { font-size: 1.6rem; }
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Onboarding Interview</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">&larr; Meta-System 3.7</a>
+  <span class="nav-links"><span class="here">Onboarding interview</span><a href="guide.html">User guide</a></span>
+</nav>
+<main>
+<h1>The Onboarding Interview</h1>
+<p class="lede">How a new Meta-System install is meant to set itself up: through a plain conversation, not a settings screen.</p>
+
+<div class="status">
+  <span class="status-label">Read this first</span>
+  <p>This page describes how the interview is <strong>designed</strong> to work. It is a draft and has not been used in a real install. It is not connected to 3.7 yet, so a test install today will not run it. The <a href="#status">current status</a> section at the bottom lists exactly what is missing.</p>
+</div>
+
+<div class="toc">
+  <div class="toc-title">On this page</div>
+  <ul>
+    <li><a href="#what">What it is</a></li>
+    <li><a href="#pace">Two paces</a></li>
+    <li><a href="#questions">The five questions</a></li>
+    <li><a href="#never">What you are never asked</a></li>
+    <li><a href="#confirm">The check before building</a></li>
+    <li><a href="#builds">What it builds</a></li>
+    <li><a href="#end">How it ends</a></li>
+    <li><a href="#status">Current status</a></li>
+  </ul>
+</div>
+
+<h2 id="what">What it is</h2>
+<p>The onboarding interview is a conversation. The new user's own copy of Claude runs it the first time the system is installed. There is no separate installer program: <strong>the interview is the installer.</strong> By the end of it, the system exists on the user's computer, built around what they said.</p>
+<p>Claude already knows what a working Meta-System looks like, because it runs inside one. The person installing it doesn't need to know any of that. Their job is to talk about themselves and their work. Claude's job is to turn that into a finished, working setup.</p>
+
+<h2 id="pace">Two paces</h2>
+<p>The interview opens by offering a choice, in roughly these words:</p>
+<blockquote>I can walk through this step by step, or if you'd rather just tell me about yourself and your work and let me handle the rest, that's fine too.</blockquote>
+<p>Step by step means more explanation and a longer conversation. "Tell me about yourself and I'll handle it" means less explanation and a shorter one.</p>
+<p>The pace changes how much gets explained. <strong>It never changes who designs the system.</strong> Choosing the fast path does not hand the user any technical decisions, and the slow path doesn't either. That holds however technical the user is. The point isn't whether they could decide. The design already carries a lot of accumulated judgment, and making every new user work it out again from scratch is exactly the waste the system exists to avoid.</p>
+
+<h2 id="questions">The five questions</h2>
+<p>All five are asked in plain language. None of them is a technical interview.</p>
+
+<div class="card">
+  <span class="num">Question one</span>
+  <h3>Who are you, and what do you do?</h3>
+  <p>Your work, your goals, and what you'd want an assistant to already know so you don't have to repeat it every session. This becomes your identity file.</p>
+</div>
+
+<div class="card">
+  <span class="num">Question two</span>
+  <h3>Where should this live?</h3>
+  <p>In your home folder, or in a folder of its own. This one really is your call, and it isn't technical. (See the <a href="#status">status notes</a>: 3.7 currently fixes this location, so the question needs updating.)</p>
+</div>
+
+<div class="card">
+  <span class="num">Question three</span>
+  <h3>What's already in motion?</h3>
+  <p>Your existing projects, work, and commitments. This tells Claude how big to make the project list and what should already be in it on day one. It is not asking whether to build the project list at all. That gets built either way.</p>
+</div>
+
+<div class="card">
+  <span class="num">Question four</span>
+  <h3>What should I always check with you before doing?</h3>
+  <p>Your hard boundaries, asked the way you'd ask a person, not the way you'd configure a system. Common answers are saving work permanently, deleting anything, or sending anything outside your computer, but it is whatever you name. Your answer becomes this install's own standing rules.</p>
+</div>
+
+<div class="card">
+  <span class="num">Question five</span>
+  <h3>How would you like this to feel day to day?</h3>
+  <p>More explanation or less. More checking in or less. This sets how the system talks to you. It is not a menu of features.</p>
+</div>
+
+<h2 id="never">What you are never asked</h2>
+<p>The user never chooses the architecture. There are no questions about where data is stored, what format it's in, which modules to include, or any other implementation detail. Claude makes those calls itself, the same way it would for any other part of the build, without presenting them as choices you need an opinion on.</p>
+
+<h2 id="confirm">The check before building</h2>
+<p>Before writing anything to disk, Claude summarizes what it is about to build: where it will live and what it will contain. Then it waits for a plain go-ahead.</p>
+<p>This is a courtesy check, not a design review. It confirms Claude understood you correctly. It isn't asking you to approve the architecture.</p>
+
+<h2 id="builds">What it builds</h2>
+<p>After the go-ahead, it builds the complete pattern, for real, on disk:</p>
+<ul>
+  <li><strong>A <code>CLAUDE.md</code> file</strong> at the chosen location, in your own terms. It's the instruction page every Claude session reads first. It is about a page long but structurally complete: who you are, your standing rules, and what is being tracked.</li>
+  <li><strong>An identity file</strong>, from your answer to question one.</li>
+  <li><strong>A project registry</strong>, the list of what you're working on.</li>
+  <li><strong>A decision log</strong>, a record of decisions and the reasons for them.</li>
+  <li><strong>An idea bank</strong>, a place to drop ideas that arrive at the wrong moment.</li>
+</ul>
+<p>The registry, decision log, and idea bank are kept in a small database on your computer, not in text files that get unwieldy as they grow.</p>
+<p><strong>It builds all of it even if you're unsure what you'll track.</strong> If you don't have clear answers yet, you get the complete system with empty, ready structures, not a smaller one. You don't have to know what you'll need before you have it. A system that starts out as almost nothing has nothing underneath it to improve.</p>
+
+<h2 id="end">How it ends</h2>
+<p>The session ends with Claude telling you plainly what now exists, where it is, and what to do next. Usually that is simply to start talking to it about your work.</p>
+<p>The design has one firm rule here. If Claude said it would build something, that thing must exist on disk before the session ends. A good conversation that never got written down doesn't count as an install.</p>
+
+<h2 id="status">Current status</h2>
+<p class="eyebrow">Verified 2026-09-25</p>
+<div class="status">
+  <span class="status-label">Where the onboarding interview actually stands</span>
+  <ul>
+    <li><strong>It is a draft.</strong> Its only test so far was a demonstration run with a fictional user, a freelance designer, against its own storage code. It has never run as a live session with a real person.</li>
+    <li><strong>It is not connected to 3.7 yet.</strong> It saves what it learns to its own separate database file. 3.7's screens read from a different database and a different idea-bank file. Anything the interview built would not show up in the 3.7 app.</li>
+    <li><strong>Claude won't find it on a 3.7 install yet.</strong> It isn't in a folder where Claude Code looks for skills.</li>
+    <li><strong>Nothing starts it automatically</strong> on first run.</li>
+    <li><strong>Its wording still names the original owner</strong> and needs to be made generic.</li>
+    <li><strong>It asks where to install,</strong> but 3.7 already fixes the install location. Question two needs to change to match.</li>
+    <li><strong>It assumes a blank computer.</strong> 3.7 already ships with baseline files, which the interview would need to extend rather than overwrite.</li>
+  </ul>
+  <p>What this means for a test install: <strong>expect to set up without the interview.</strong> The rest of 3.7 can be tested on its own, and the <a href="guide.html">user guide</a> describes it. No date has been set for connecting the interview.</p>
+</div>
+</main>
+<footer>
+  <p>Meta-System 3.7 &mdash; onboarding interview. <a href="guide.html">Next: user guide &rarr;</a></p>
+</footer>
+</body>
+</html>
