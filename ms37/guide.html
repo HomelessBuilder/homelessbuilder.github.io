@@ -36,6 +36,7 @@
     <li><a href="#rules">The rules every session follows</a></li>
     <li><a href="#practices">Good habits</a></li>
     <li><a href="#limitations">Known limitations</a></li>
+    <li><a href="#setup">First-time setup</a></li>
     <li><a href="#install">Installing</a></li>
   </ul>
 </div>
@@ -183,13 +184,16 @@
 <ul>
   <li>Terminal scrollback doesn't survive a reboot. The sessions come back, but what was on screen doesn't.</li>
   <li>A terminal pane can freeze without reconnecting. Reloading the page fixes it, and nothing running inside is lost.</li>
-  <li>Chat panes can't run commands, because they have no approval button yet.</li>
+  <li>Chat panes can't run commands, because they have no approval button yet. The one exception is the <strong>Setup</strong> persona, which may run the devlog commands the onboarding interview needs.</li>
   <li>Only one global, all-workspace pane is possible.</li>
   <li>The Sessions pane shows Claude sessions only, not plain terminals.</li>
   <li>The browser pane has no back or forward and can't open files straight from disk.</li>
   <li>Some panes read from companion tools the original install has. On a new install they may show little or nothing.</li>
-  <li>The <a href="onboarding.html">onboarding interview</a> is not connected to 3.7 yet.</li>
+  <li>Some screens still show text left over from the original install. Report any you find.</li>
 </ul>
+
+<h2 id="setup">First-time setup</h2>
+<p>Open a workspace, choose <strong>Setup</strong> from the ＋ persona menu, and say hi. Setup runs the <a href="onboarding.html"><strong>onboarding interview</strong></a>: a short conversation about who you are, what you're working on, and what it should always check with you about. When you give the go-ahead, it builds your profile (<code>ABOUT-ME.md</code>), adds your rules and projects to <code>CLAUDE.md</code>, and records your first decisions and ideas. The baseline working rules stay in place; your rules are added on top.</p>
 
 <h2 id="install">Installing</h2>
 <div class="status">
@@ -206,7 +210,7 @@
 <p>It also needs Claude Code itself installed and signed in on the computer.</p>
 </main>
 <footer>
-  <p>Meta-System 3.7 &mdash; user guide, adapted 2026-09-25 from the 3.0 guide. <a href="onboarding.html">&larr; Onboarding interview</a></p>
+  <p>Meta-System 3.7 &mdash; user guide, adapted 2026-09-25 from the 3.0 guide; first-time setup added 2026-09-26. <a href="onboarding.html">&larr; Onboarding interview</a></p>
 </footer>
 </body>
 </html>
