@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Install Meta-System 3.7</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">&larr; Meta-System 3.7</a>
+  <span class="nav-links"><span class="here">Install</span><a href="onboarding.html">Onboarding interview</a><a href="guide.html">User guide</a></span>
+</nav>
+<main>
+<h1>Install Meta-System 3.7</h1>
+<p class="lede">An evaluation install for your own computer: one download, one command, then a conversation.</p>
+
+<div class="status">
+  <span class="status-label">Where the installer stands</span>
+  <p><strong>This is an early build, for evaluation.</strong> It has installed, uninstalled, reinstalled and restarted cleanly on a Debian 12 test machine. <strong>It has not yet run on Windows (WSL2)</strong>, and it hasn't run on Ubuntu 26.04, though the pieces that differ there were tested separately. Your install may be the first on your setup, so anything that confuses you is worth a note, not just errors.</p>
+</div>
+
+<h2 id="download">Download</h2>
+<p><a class="download" href="ms37-installer-20260927-2057-2969fee-clean.tar.gz" download>Download the installer (1 MB)</a></p>
+<p class="checksum">Build 2026-09-27, code 2969fee.<br>SHA-256: 295e2dba55a7feea7144c0320e29e08f0f01a3cfefda8c5b5fac6485186bee64</p>
+
+<h2 id="need">What you need</h2>
+<ul>
+  <li><strong>Windows 10 or 11 with WSL2</strong> (Ubuntu running inside Windows), or an Ubuntu or Debian Linux computer or virtual machine. Use Ubuntu 24.04 or newer.</li>
+  <li><strong>Admin rights</strong> on the computer.</li>
+  <li><strong>Your own Claude subscription.</strong> Meta-System's chat runs on your Claude login.</li>
+  <li>About 15 minutes.</li>
+</ul>
+
+<h2 id="windows">On Windows: set up Ubuntu first</h2>
+<p>Skip this if you're already on Linux.</p>
+<ol>
+  <li>Open <strong>PowerShell as administrator</strong> (right-click the Start button, choose "Terminal (Admin)") and run:
+<pre><code>wsl --install -d Ubuntu</code></pre>
+  Restart Windows if it asks you to.</li>
+  <li>Open <strong>Ubuntu</strong> from the Start menu. The first time, it asks you to choose a username and password. The installer asks for this password later.</li>
+  <li>Download the installer above. It lands in your Windows Downloads folder.</li>
+</ol>
+<p>Everything from here on is typed into the Ubuntu window.</p>
+
+<h2 id="install">Install</h2>
+<p>Copy the installer into Ubuntu and run it. Replace <code>YOUR-WINDOWS-NAME</code> with the name of your Windows user folder:</p>
+<pre><code>cp /mnt/c/Users/YOUR-WINDOWS-NAME/Downloads/ms37-installer-*.tar.gz ~/
+cd ~ &amp;&amp; tar xzf ms37-installer-*.tar.gz &amp;&amp; cd ms37-installer-*/
+./install.sh</code></pre>
+<p>On Linux, skip the <code>cp</code> line and run the rest from wherever the download landed.</p>
+<p>The installer runs seven steps and checks each one as it goes:</p>
+<ol>
+  <li>It asks for your password (the Ubuntu one, on Windows).</li>
+  <li>Partway through, it opens Claude Code for you to <strong>log in with your own Claude account</strong>. If no browser opens, copy the link it shows into your browser, log in, and paste the code back. Then type <code>/exit</code> and the installer carries on.</li>
+  <li>At the end it prints an address starting <code>http://127.0.0.1:8791/</code>. Open it in your browser. On Windows, that's your normal Windows browser.</li>
+</ol>
+<p>If a step stops with an error, nothing is broken. Take a screenshot, fix what it says if you can, and run <code>./install.sh</code> again. It picks up where it stopped.</p>
+
+<h2 id="first">The first time it opens</h2>
+<p>A <strong>Setup</strong> chat starts by itself and says hello. That's the <a href="onboarding.html">onboarding interview</a>: it asks about you and your work, then builds your starting system from your answers. It only starts by itself once. Take your time with it.</p>
+<p>The code at the end of the address is the password to your Meta-System. Keep the address private. It stays the same, so a bookmark keeps working.</p>
+
+<h2 id="restart">After a restart</h2>
+<p>On Linux, Meta-System starts by itself when the computer starts. On Windows, open Ubuntu first and keep its window open while you use Meta-System. If the address doesn't load, run this in Ubuntu:</p>
+<pre><code>~/ms37-installer-*/start-metasystem.sh</code></pre>
+<p>It starts Meta-System again and prints the same address.</p>
+
+<h2 id="notes">What to try, and what to note</h2>
+<ul>
+  <li><strong>The setup interview.</strong> Did it make sense? Where did it lose you?</li>
+  <li><strong>Every pane.</strong> Which show content, which are empty, and which show an error. Some panes were built for tools that aren't part of this install, and finding out which is part of the point.</li>
+  <li><strong>A terminal pane.</strong> Does it open, and can you type in it?</li>
+  <li><strong>Decision Log and Idea Bank.</strong> Add a test entry to each. Does it appear?</li>
+  <li><strong>Anything mentioning a person, path or project that isn't yours.</strong> The code still carries notes from its own development, so some of these are expected. They're still worth a note.</li>
+</ul>
+<p>Send screenshots and notes to the person who gave you this link.</p>
+
+<h2 id="remove">Removing it</h2>
+<pre><code>~/ms37-installer-*/uninstall.sh</code></pre>
+<p>This deletes the <code>metasys</code> account the installer created, and everything Meta-System stored in it. It asks you to type <code>remove</code> first. On Windows you can also remove Ubuntu entirely from Settings, Apps.</p>
+
+<h2 id="inside">What the installer does</h2>
+<p>It installs a few standard packages (git, tmux, Python's websockets, curl, cron), creates a separate account named <code>metasys</code> so everything stays apart from your own files, puts the code and three starting files in that account, installs Claude Code there, creates the database, starts the server, and sets it to start after a restart. The server only accepts connections from the same computer. The <a href="guide.html">user guide</a> explains what each part is.</p>
+</main>
+<footer>
+  <p>Meta-System 3.7, evaluation installer. Written 2026-09-27. <a href="onboarding.html">Next: onboarding interview &rarr;</a></p>
+</footer>
+</body>
+</html>

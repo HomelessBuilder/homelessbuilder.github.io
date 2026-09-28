@@ -10,7 +10,7 @@
 <body>
 <nav class="topnav">
   <a href="index.html">&larr; Meta-System 3.7</a>
-  <span class="nav-links"><a href="onboarding.html">Onboarding interview</a><span class="here">User guide</span></span>
+  <span class="nav-links"><a href="install.html">Install</a><a href="onboarding.html">Onboarding interview</a><span class="here">User guide</span></span>
 </nav>
 <main>
 <h1>Meta-System 3.7 &mdash; User Guide</h1>
@@ -148,7 +148,7 @@
 
 <h2 id="starting">Starting, stopping, and reboots</h2>
 <p>The app runs as a small server on the same computer, and you open it in a browser there. It only accepts connections from that computer. Opening it requires a private link that includes a secret access code. Keep that link to yourself. It stays the same across restarts, so a bookmark keeps working.</p>
-<p><strong>It starts itself when the computer boots.</strong> After a reboot or a crash, the server comes back on its own and reloads your last layout. There are also start and stop scripts in the app's folder if you ever need to control it by hand. Stopping the server doesn't stop what's running in your terminals.</p>
+<p><strong>It starts itself when the computer boots.</strong> On Windows (WSL2), open Ubuntu first; if the address doesn't load, run <code>start-metasystem.sh</code> from the installer folder. After a reboot or a crash, the server comes back on its own and reloads your last layout. There are also start and stop scripts in the app's folder if you ever need to control it by hand. Stopping the server doesn't stop what's running in your terminals.</p>
 
 <h2 id="durability">What survives what</h2>
 <div class="table-wrap"><table>
@@ -193,13 +193,10 @@
 </ul>
 
 <h2 id="setup">First-time setup</h2>
-<p>Open a workspace, choose <strong>Setup</strong> from the ＋ persona menu, and say hi. Setup runs the <a href="onboarding.html"><strong>onboarding interview</strong></a>: a short conversation about who you are, what you're working on, and what it should always check with you about. When you give the go-ahead, it builds your profile (<code>ABOUT-ME.md</code>), adds your rules and projects to <code>CLAUDE.md</code>, and records your first decisions and ideas. The baseline working rules stay in place; your rules are added on top.</p>
+<p>The first time a new install opens, <strong>Setup</strong> starts by itself and says hello. (If you close it, you can reopen it from the ＋ persona menu.) Setup runs the <a href="onboarding.html"><strong>onboarding interview</strong></a>: a short conversation about who you are, what you're working on, and what it should always check with you about. When you give the go-ahead, it builds your profile (<code>ABOUT-ME.md</code>), adds your rules and projects to <code>CLAUDE.md</code>, and records your first decisions and ideas. The baseline working rules stay in place; your rules are added on top.</p>
 
 <h2 id="install">Installing</h2>
-<div class="status">
-  <span class="status-label">Not published here</span>
-  <p><strong>Step-by-step install instructions exist, but they aren't published on this page.</strong> This section describes what an install consists of. It isn't a set of instructions to follow.</p>
-</div>
+<p>The installer and its instructions are on the <a href="install.html">Install</a> page.</p>
 <p>A working 3.7 install today is made of:</p>
 <ul>
   <li><strong>The Meta-System app</strong> (the <code>meta-system-3-0</code> code), which is the browser screen and its server.</li>

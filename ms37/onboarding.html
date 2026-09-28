@@ -10,7 +10,7 @@
 <body>
 <nav class="topnav">
   <a href="index.html">&larr; Meta-System 3.7</a>
-  <span class="nav-links"><span class="here">Onboarding interview</span><a href="guide.html">User guide</a></span>
+  <span class="nav-links"><a href="install.html">Install</a><span class="here">Onboarding interview</span><a href="guide.html">User guide</a></span>
 </nav>
 <main>
 <h1>The Onboarding Interview</h1>
@@ -18,7 +18,7 @@
 
 <div class="status">
   <span class="status-label">Read this first</span>
-  <p>The interview is now built into 3.7. You start it by choosing <strong>Setup</strong> from the persona menu. It has passed a full test on a practice install with a fictional user, but it <strong>has not yet run on a real install</strong>. The <a href="#status">current status</a> section at the bottom says exactly what is done, what has been tested, and what is still missing.</p>
+  <p>The interview is now built into 3.7. It starts by itself the first time a new install opens. It has passed a full test on a practice install with a fictional user, but it <strong>has not yet run on a real install</strong>. The <a href="#status">current status</a> section at the bottom says exactly what is done, what has been tested, and what is still missing.</p>
 </div>
 
 <div class="toc">
@@ -36,8 +36,8 @@
 </div>
 
 <h2 id="what">What it is</h2>
-<p>The onboarding interview is a conversation. The new user's own copy of Claude runs it the first time they use the system. There is no separate installer program: <strong>the interview is the installer.</strong> By the end of it, the system is set up around what they said.</p>
-<p>To start it, open a workspace, choose <strong>Setup</strong> from the ＋ persona menu, and say hi. Setup is a chat persona whose only job is running this interview.</p>
+<p>The onboarding interview is a conversation. The new user's own copy of Claude runs it the first time they use the system. A small installer puts the pieces in place; <strong>the interview is what sets it up for you.</strong> By the end of it, the system is set up around what they said.</p>
+<p>The first time a new install opens, <strong>Setup</strong> starts by itself and says hello. (If you close it, you can reopen it from the ＋ persona menu.) Setup is a chat persona whose only job is running this interview.</p>
 <p>Claude already knows what a working Meta-System looks like, because it runs inside one. The person installing it doesn't need to know any of that. Their job is to talk about themselves and their work. Claude's job is to turn that into a finished, working setup.</p>
 
 <h2 id="pace">Two paces</h2>
@@ -113,6 +113,7 @@
     <li><strong>It extends the existing baseline files</strong> and never replaces them.</li>
     <li><strong>The "where should this live" question is gone</strong>, because the install location is fixed.</li>
     <li><strong>The original owner's name has been removed</strong> from its wording.</li>
+    <li><strong>It starts by itself on first launch</strong> (2026-09-27).</li>
   </ul>
   <h3>Tested, and how</h3>
   <p>It passed a full end-to-end test on a practice install with a fictional user. The test created projects, decisions, and an idea, and all of them could be read back afterwards. When the fictional user asked to drop one of the baseline checks, the baseline rule stayed. <strong>It has not yet run on a real install.</strong></p>
@@ -121,7 +122,6 @@
   <h3>Still missing</h3>
   <ul>
     <li><strong>Projects aren't linked to sessions yet.</strong> The projects it records appear in the Projects pane, but the sessions you work in aren't connected to them.</li>
-    <li><strong>Nothing starts Setup automatically.</strong> You choose it from the persona menu yourself.</li>
   </ul>
 </div>
 </main>
