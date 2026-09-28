@@ -22,8 +22,8 @@
 </div>
 
 <h2 id="download">Download</h2>
-<p><a class="download" href="ms37-installer-20260927-2057-2969fee-clean.tar.gz" download>Download the installer (1 MB)</a></p>
-<p class="checksum">Build 2026-09-27, code 2969fee.<br>SHA-256: 295e2dba55a7feea7144c0320e29e08f0f01a3cfefda8c5b5fac6485186bee64</p>
+<p><a class="download" href="ms37-installer-20260928-1217-2969fee-clean.tar.gz" download>Download the installer (1 MB)</a></p>
+<p class="checksum">Build 2026-09-28, code 2969fee.<br>SHA-256: 00668060abe69ba4017fdddcb2b6cab3314c5f484cbed586f7a15b7469e9afde</p>
 
 <h2 id="need">What you need</h2>
 <ul>
@@ -53,10 +53,13 @@ cd ~ &amp;&amp; tar xzf ms37-installer-*.tar.gz &amp;&amp; cd ms37-installer-*/
 <p>The installer runs seven steps and checks each one as it goes:</p>
 <ol>
   <li>It asks for your password (the Ubuntu one, on Windows).</li>
-  <li>Partway through, it opens Claude Code for you to <strong>log in with your own Claude account</strong>. If no browser opens, copy the link it shows into your browser, log in, and paste the code back. Then type <code>/exit</code> and the installer carries on.</li>
+  <li>Partway through, it <strong>pauses so you can log in to Claude Code with your own Claude account</strong>. It prints the exact commands to type:
+<pre><code>sudo -iu metasys
+claude</code></pre>
+  Log in. If no browser opens, copy the link it shows into your browser, log in, and paste the code back. Type <code>/exit</code> to leave Claude Code, then <code>exit</code>, then run <code>./install.sh</code> again. It skips what's already done and finishes the install.</li>
   <li>At the end it prints an address starting <code>http://127.0.0.1:8791/</code>. Open it in your browser. On Windows, that's your normal Windows browser.</li>
 </ol>
-<p>If a step stops with an error, nothing is broken. Take a screenshot, fix what it says if you can, and run <code>./install.sh</code> again. It picks up where it stopped.</p>
+<p>If a step stops, it prints a red STOPPED message saying which step and why. Take a screenshot, fix what it says if you can, and run <code>./install.sh</code> again. It picks up where it stopped, including a step that stopped halfway. If you'd rather start clean, run <code>./uninstall.sh</code> first.</p>
 
 <h2 id="first">The first time it opens</h2>
 <p>A <strong>Setup</strong> chat starts by itself and says hello. That's the <a href="onboarding.html">onboarding interview</a>: it asks about you and your work, then builds your starting system from your answers. It only starts by itself once. Take your time with it.</p>
