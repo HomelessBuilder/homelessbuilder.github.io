@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cloud Infrastructure Leads</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: job-board sweep, cloud infrastructure</div>
+    <h1>Fourteen cloud infrastructure openings</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. A broad sweep of Cloud Infrastructure Engineer type roles across the US, not filtered against any résumé. Seniority ranges from associate to staff. Postings found closed (404) during the sweep were left out.</p>
+  </header>
+
+  <div class="legend">
+    <p><strong>How to read the cards:</strong> the three boxes show pay, experience asked for, and clearance. "Not listed" means the posting doesn't say.</p>
+    <div class="legend-row">
+      <span class="badge a">Confirmed</span>
+      <span><strong>Opened the posting directly</strong> and saw it live, with its full requirements.</span>
+    </div>
+    <div class="legend-row">
+      <span class="badge b">Listed</span>
+      <span><strong>Seen on a job board as posted within the last 6 days</strong>, but the employer page didn't load for a direct check. Verify before applying.</span>
+    </div>
+  </div>
+
+  <div class="lead-list">
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">01</span>
+            <div class="role">Cloud Infrastructure Engineer (Senior or Staff)</div>
+            <div class="company">Firestorm</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill onsite">San Diego, CA</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$175K–$195K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">6+ yrs</span></div>
+          <div class="align-cell"><span class="label">Clearance</span><span class="level">Clearance-eligible</span></div>
+        </div>
+        <p>Production Kubernetes, Terraform, Helm, GitOps, cloud networking, Linux, IAM. AWS GovCloud, Argo CD and air-gapped deployments preferred. Relocation may be offered. Posted 4 days ago.</p>
+        <a class="apply-link" href="https://jobs.joindevops.com/jobs/772152723-cloud-infrastructure-engineer" target="_blank" rel="noopener">View on JoinDevOps ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">02</span>
+            <div class="role">Cloud Engineer III</div>
+            <div class="company">The Marlin Alliance, Inc.</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill onsite">San Diego, CA: on-site, 20% travel</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$120K–$200K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not stated</span></div>
+          <div class="align-cell"><span class="label">Clearance</span><span class="level">TS/SCI + Security+</span></div>
+        </div>
+        <p>AWS (EC2, S3, VPC, IAM, EKS), Kubernetes, Linux administration, Terraform or CloudFormation, GitLab CI / GitHub Actions / Argo CD, STIG hardening. Posted 1 day ago.</p>
+        <a class="apply-link" href="https://jobs.joindevops.com/jobs/779305925-cloud-engineer-iii" target="_blank" rel="noopener">View on JoinDevOps ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">03</span>
+            <div class="role">Associate Cloud Security Engineer, AWS</div>
+            <div class="company">GuidePoint Security</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">Pay</span><span class="level">Not listed</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">1 yr (labs count)</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">None</span></div>
+        </div>
+        <p>Entry-level consulting role: AWS IAM, CloudTrail, GuardDuty, Security Hub, Config, IaC exposure, Python. Requires AWS Cloud Practitioner; SAA and Security+ preferred.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/guidepointsecurity/jobs/6191766004" target="_blank" rel="noopener">Apply on GuidePoint&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">04</span>
+            <div class="role">Cloud Infrastructure Engineer, Kubernetes / KubeVirt</div>
+            <div class="company">Mirantis</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Austin, TX: telecommute permitted</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">Pay</span><span class="level">Not listed</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">5 yrs + BS</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">None</span></div>
+        </div>
+        <p>Designing and running production Kubernetes, AWS or Azure hybrid infrastructure, Argo CD, Artifactory, Terraform or Ansible, Linux administration. Posted within the last day.</p>
+        <a class="apply-link" href="https://jobs.smartrecruiters.com/mirantis/744000156759549-cloud-infrastructure-engineer-kubernetes-kubevirt-ref1242m-" target="_blank" rel="noopener">Apply on SmartRecruiters ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">05</span>
+            <div class="role">AWS Cloud Engineer</div>
+            <div class="company">Peraton</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$104K–$166K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">8 yrs w/ BS</span></div>
+          <div class="align-cell"><span class="label">Clearance</span><span class="level">Public Trust</span></div>
+        </div>
+        <p>Advanced Terraform, GitLab CI/CD pipeline design, AWS architecture and security (IAM, VPCs, containers), Python and Bash, CloudWatch and Grafana. Equivalent: 12 yrs with high school diploma.</p>
+        <a class="apply-link" href="https://careers-peraton.icims.com/jobs/172350/aws-cloud-engineer/job" target="_blank" rel="noopener">Apply on Peraton&#x27;s site ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">06</span>
+            <div class="role">Oracle Cloud Infrastructure Administrator</div>
+            <div class="company">VSO (Virtual Service Operations)</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$100K–$125K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">3–5 yrs</span></div>
+          <div class="align-cell"><span class="label">Clearance</span><span class="level">Public Trust</span></div>
+        </div>
+        <p>OCI administration (or equivalent public cloud), VCNs, DNS, routing, VPN/interconnects, Entra ID federation, monitoring and capacity planning. Listed on job boards as &quot;Cloud Infrastructure Administrator.&quot;</p>
+        <a class="apply-link" href="https://recruiting.paylocity.com/Recruiting/Jobs/Details/4591645" target="_blank" rel="noopener">Apply on Paylocity ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">07</span>
+            <div class="role">Cloud Infrastructure Engineer</div>
+            <div class="company">Game Plan Tech</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill onsite">Washington, DC</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">Pay</span><span class="level">Not listed</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">3+ yrs</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">None stated</span></div>
+        </div>
+        <p>Google Cloud Platform in a federal environment: Terraform, Ansible, Kubernetes, CI/CD, Python or Bash, cloud networking, federal compliance.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/gameplantech/jobs/4056534009" target="_blank" rel="noopener">Apply on Game Plan Tech&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">08</span>
+            <div class="role">Senior Cloud Infrastructure Engineer</div>
+            <div class="company">Delta Computer Consulting</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill onsite">Marysville, OH: hybrid, W2 contract</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$81–$88/hr</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">5+ yrs</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">None stated</span></div>
+        </div>
+        <p>Multi-cloud (AWS, Azure, GCP), Kubernetes / EKS / OpenShift, Terraform, Ansible, Python, Linux and Windows Server. Long-term contract. Posted Oct 21.</p>
+        <a class="apply-link" href="https://www.linkedin.com/jobs/view/senior-cloud-infrastructure-engineer-at-delta-computer-consulting-4482000047" target="_blank" rel="noopener">View on LinkedIn ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">09</span>
+            <div class="role">Cloud Infrastructure Systems Administrator</div>
+            <div class="company">CACI International</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote (any state)</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$75.2K–$158.1K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Wide band suggests multiple levels. Posted 5 days ago.</p>
+        <a class="apply-link" href="https://caci.wd1.myworkdayjobs.com/external/job/remote-any-state/cloud-infrastructure-systems-administrator_333575" target="_blank" rel="noopener">Apply on CACI&#x27;s Workday ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">10</span>
+            <div class="role">Cloud Engineer</div>
+            <div class="company">PURE Insurance</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in FL, IL, NM, NY, MA, MI, SC</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$95K–$120K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Tagged mid-level to senior. Posted 1 day ago.</p>
+        <a class="apply-link" href="https://pureinsurance.wd5.myworkdayjobs.com/pure/job/remote---us/cloud-engineer_r2795" target="_blank" rel="noopener">Apply on PURE&#x27;s Workday ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">11</span>
+            <div class="role">Cloud Engineer</div>
+            <div class="company">Tripoint Solutions</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in 19 states incl. AZ, CO, TX, VA</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$110K–$130K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Tagged mid-level to senior. Posted 4 days ago.</p>
+        <a class="apply-link" href="https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=de4c688d-500c-4c2c-88c8-bea24ba06d99&amp;ccId=19000101_000001&amp;jobId=560032" target="_blank" rel="noopener">Apply on ADP ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">12</span>
+            <div class="role">Cloud Engineer</div>
+            <div class="company">Crestron Electronics</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in NJ or TX</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$88.5K–$143K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Tagged mid-level to senior. Posted 6 days ago.</p>
+        <a class="apply-link" href="https://jobs.dayforcehcm.com/crestron/candidateportal/jobs/4740" target="_blank" rel="noopener">Apply on Dayforce ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">13</span>
+            <div class="role">Cloud Systems Engineer</div>
+            <div class="company">AppGate</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$135K–$150K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Zero Trust network access vendor. Tagged senior / lead. Posted 9 hours before this sweep.</p>
+        <a class="apply-link" href="https://apply.workable.com/appgate/j/0FA209C742" target="_blank" rel="noopener">Apply on Workable ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">14</span>
+            <div class="role">Senior Cloud Engineer I</div>
+            <div class="company">Inductive Automation</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$145K–$155K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell weak"><span class="label">Clearance</span><span class="level">Not checked</span></div>
+        </div>
+        <p>Tagged senior. Posted 4 days ago.</p>
+        <a class="apply-link" href="https://jobs.ashbyhq.com/inductive-automation-llc/32c4589b-25a7-4017-8f7c-e12b87ccb8df" target="_blank" rel="noopener">Apply on Ashby ↗</a>
+      </div>
+    </article>
+
+  </div>
+
+  <footer class="memo-footer">
+    <p>Postings change fast. Cards marked Listed were not opened directly; several employer sites (Workday, Dayforce, ADP) render client-side and couldn't be read. Pay figures come from the posting or the job board that listed it.</p>
+    <p>Checked and left out because they were already closed: Cognizant Senior Azure Cloud Infrastructure Engineer, a Jobgether Staff Cloud Infrastructure Engineer, KPA Senior Cloud &amp; Security Engineer, Skylo Staff Cloud Infrastructure Engineer.</p>
+  </footer>
+
+  <div class="also-see">
+    Earlier lists: <a href="job-leads.html">roles spanning all three certifications</a> · <a href="job-leads-sd.html">San Diego list</a>
+  </div>
+</div>
+
+</body>
+</html>
