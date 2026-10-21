@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tailored Résumé v2</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+<style>
+  .qsec { padding: 1.1rem; }
+  .qsec h2 { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; }
+  .resume { padding: 1.3rem 1.2rem; }
+  .resume .name { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0; }
+  .resume .contact { font-size: 0.8rem; color: var(--ink-soft); margin: 0.2rem 0 0.3rem; overflow-wrap: anywhere; }
+  .resume .headline { font-weight: 700; color: var(--accent-ink); font-size: 0.95rem; margin: 0 0 0.4rem; }
+  .resume h3 { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--line-strong); padding-bottom: 0.25rem; margin: 1.3rem 0 0.6rem; }
+  .resume p, .resume li { font-size: 0.88rem; }
+  .resume p { margin: 0 0 0.5rem; }
+  .resume ul { margin: 0.2rem 0 0.8rem; padding-left: 1.15rem; }
+  .resume li { margin-bottom: 0.3rem; color: var(--ink-soft); }
+  .job { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; font-weight: 700; font-size: 0.92rem; margin-top: 0.7rem; }
+  .job .dates { font-weight: 600; color: var(--ink-soft); font-size: 0.82rem; }
+  .jobtitle { font-style: italic; font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 0.1rem; }
+  .skill { margin: 0 0 0.35rem; }
+  .skill strong { color: var(--ink); }
+  .ph { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-radius: 4px; padding: 0 0.25rem; font-size: 0.8rem; font-weight: 600; }
+  .tbl { overflow-x: auto; }
+  .tbl table { border-collapse: collapse; width: 100%; font-size: 0.82rem; }
+  .tbl th, .tbl td { border: 1px solid var(--line); padding: 0.35rem 0.45rem; text-align: left; vertical-align: top; }
+  .tbl th { background: var(--paper); }
+  .st { font-weight: 700; white-space: nowrap; }
+  .st.Strong { color: var(--confirm-a-ink); }
+  .st.Partial { color: var(--confirm-b-ink); }
+  .st.Gap { color: var(--onsite-ink); }
+  .qsec ul { margin: 0; padding-left: 1.2rem; font-size: 0.88rem; }
+  .qsec li { margin-bottom: 0.4rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: résumé, tailored draft 2</div>
+    <h1>Résumé tailored to the target bullets, draft 2</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. Draft 2 updates <a href="resume-tailored.html">draft 1</a> with answers to the follow-up questions; the changes are listed at the end for comparison. Like draft 1, it is aligned as closely as the evidence allows with the <a href="resume-bullets.html">qualified-candidate bullets</a>. Nothing is invented: where a target bullet needs proof that doesn't exist yet, the résumé shows a highlighted <span class="ph">[NEEDS EVIDENCE]</span> or <span class="ph">[CONFIRM]</span> marker instead. The alignment table and gap list follow the résumé.</p>
+  </header>
+
+  <div class="lead-list">
+    <section class="card resume">
+      <p class="name">Daniel Rickey</p>
+      <p class="contact">San Diego, CA (remote) | dan@sandiegoai.help | linkedin.com/in/danielrickey | github.com/homelessbuilder</p>
+      <p class="headline">Cloud Infrastructure &amp; AI Engineer</p>
+      <p class="contact">US citizen · able to pass a criminal background check · open to remote, on-site, and travel</p>
+      <h3>Professional Summary</h3>
+      <p>Cloud infrastructure and AI engineer who builds and runs production AWS services and multi-agent AI systems on self-managed Linux. Built and operates the AWS stack behind a live consulting site and an AI tutor service (AWS Lambda calling the Anthropic API), and designed a coordinated system of 40+ Claude Code agents with its own Python/SQLite logging backend, browser-based operations console, and read-only monitoring. AWS training and work since 2017. Builds with AI as the primary code author: design, review, iterative testing, and fault diagnosis are my own, and output is cross-checked across multiple AI tools.</p>
+      <h3>Technical Skills</h3>
+      <p class="skill"><strong>Cloud (AWS):</strong> EC2, S3, CloudFront, Route 53, Lambda, API Gateway, SES, IAM (resource-scoped least-privilege policies), VPC</p>
+      <p class="skill"><strong>Automation &amp; deployment:</strong> AWS CLI (agent-driven), deployment scripts, Bash, cron, Git <span class="ph">[NEEDS EVIDENCE: Terraform / CloudFormation / CDK]</span></p>
+      <p class="skill"><strong>Linux &amp; virtualization:</strong> Linux server administration, Linux virtualization with isolated VMs, network segmentation, server hardening, tmux, systemd</p>
+      <p class="skill"><strong>Languages (AI-assisted development; read, review, debug):</strong> Python (asyncio, websockets, pty, SQLite), Bash, JavaScript / Node.js</p>
+      <p class="skill"><strong>AI &amp; LLM systems:</strong> Anthropic Messages API, Claude Code (interactive and headless stream-json mode), multi-agent orchestration, agent permission scoping, independent multi-agent review</p>
+      <p class="skill"><strong>Data:</strong> SQLite schema design and live migration, MySQL administration</p>
+      <p class="skill"><strong>Networking:</strong> TCP/IP, DNS and domain lifecycle, routing &amp; switching, wireless, Cisco</p>
+      <p class="skill"><strong>Certifications in progress:</strong> CompTIA Security+ (SY0-701) | AWS Certified Solutions Architect – Associate (SAA-C03) | Claude Certified Architect – Foundations (CCAR-F)</p>
+      <h3>Professional Experience</h3>
+      <div class="job"><span>San Diego Cloud Solutions</span><span class="dates">2026 – Present</span></div>
+      <p class="jobtitle">Founder &amp; Cloud Infrastructure Engineer</p>
+      <ul><li>Built and operate production AWS infrastructure for sandiegoai.help: an Eleventy static site on S3 + CloudFront, Route 53 DNS, and SES custom-domain email, with live Square checkout on listed services; initial setup through the console, with the site rebuild and newer features delivered by Claude Code driving the AWS CLI</li><li>Deployed Sabia, an AI tutor service: a Node.js AWS Lambda calling the Anthropic Messages API, shipped through a scripted AWS CLI deployment with a resource-scoped least-privilege IAM policy</li><li>Separated development and production AWS accounts, enforced MFA on root and all team-member roles, and created dedicated agent roles with their own credentials so AI agents operate under scoped access</li><li>Administer DNS configuration, domain lifecycle, and access controls across client-facing applications and AWS services</li><li>Built and launched San Diego AI HELP, an AI consulting offering for San Diego small businesses: audit-driven service design, AI automation workflows, and live Square checkout on listed services</li><li>Published Solo Builder&#x27;s Meta-System, a paid guide + template pack, taken from design to launch in two weeks with the purchase flow tested end to end</li><li>Designing an AI-powered conversational intake system on existing Lambda/API Gateway infrastructure, with an RDS-backed data layer planned</li></ul>
+      <div class="job"><span>Vons Companies, Inc.</span><span class="dates">2022 – 2025</span></div>
+      <p class="jobtitle">Managing Clerk</p>
+      <ul><li>Led and developed a team in a high-throughput environment, supervising 6 direct reports with person-in-charge responsibility for approximately 12 additional staff across departments</li><li>Managed inventory systems and operational data for $100K+ in daily product volume, minimizing loss and maintaining accuracy</li><li>Trusted as designated key holder responsible for critical access controls and opening/closing operations</li></ul>
+      <div class="job"><span>Harmony Home Medical, Inc.</span><span class="dates">2022</span></div>
+      <p class="jobtitle">Repair &amp; Installation Technician</p>
+      <ul><li>Diagnosed and repaired electromechanical mobility equipment including power wheelchairs and scooters, applying systematic troubleshooting methodology</li><li>Installed accessibility systems at residential and commercial sites, coordinating scheduling and providing direct customer technical support</li></ul>
+      <div class="job"><span>Mitac, Inc.</span><span class="dates">2021</span></div>
+      <p class="jobtitle">Audio/Video Production Engineer</p>
+      <ul><li>Configured and deployed full A/V infrastructure for a corporate hybrid live/video-conference sales event, integrating IP networking with A/V-over-IP systems</li><li>Operated and monitored live A/V systems throughout the event, ensuring uninterrupted broadcast and in-room experience</li></ul>
+      <div class="job"><span>Illumanonymous, LLC</span><span class="dates">2019 – 2021</span></div>
+      <p class="jobtitle">Cloud Infrastructure Engineer</p>
+      <ul><li>Designed and deployed AWS-based infrastructure for an early-stage venture, taking one of two domains from development into production</li><li>Deployed and administered a self-hosted NextCloud environment with phone app implementation, providing private file sync and collaboration independent of third-party hosting</li><li>Managed DNS configuration and domain lifecycle across the venture&#x27;s domains, ensuring uptime and routing reliability</li></ul>
+      <h3>Technical Development Path</h3>
+      <p>The R&amp;D foundation behind San Diego Cloud Solutions and San Diego AI HELP, current AI-assisted architecture and infrastructure work, grown out of earlier virtualization and systems experience below.</p>
+      <div class="job"><span>Meta-System</span><span class="dates">2026 – Present</span></div>
+      <ul><li>Designed and run a coordinated system of 40+ scoped Claude Code agents: one orchestrating instance that advises but executes nothing, isolated per-project agents governed by version-controlled context files, and a shared activity log every project writes to; it oversees its own development alongside several live websites</li><li>Built the browser-based operations console (Meta-System 2.0, 84 commits Jul–Sep 2026; continued as 3.0, 60 commits Aug–Oct): a Python asyncio server bridging real pty terminals over authenticated WebSockets, with tmux-backed sessions that survive a closed tab or backend restart and 14 panes built against one shared contract</li><li>Streamed Claude Code output into the console by running headless turns in stream-json mode and translating each event for the browser</li><li>Hardened the WebSocket handshake with Origin and token validation, verified against live authentication-rejection tests rather than code review alone</li><li>Built the shared logging backend (devlog-engine) in Python and SQLite: schema designed against a real 88-entry dataset, migrated live with two bugs caught and fixed mid-migration, now the system of record with generated Markdown exports, backups, and integrity checks</li><li>Put architecture decisions through independent multi-agent review before building; a unanimous panel reversed the original MySQL choice to SQLite before further work</li><li>Diagnosed a post-reboot failure where the console&#x27;s terminal server would not start under cron, traced it to missing TERM and SHELL in cron&#x27;s environment, fixed both, and verified the fix across a reboot on a separate test VM</li><li>Run a read-only cron monitor that reports health across every repo with zero write permissions, under a staged automation rule (manual → prompted → drafted → autonomous) that keeps guardrails ahead of capability</li><li>Validate AI-generated code by testing each feature at every iteration, reviewing output for characteristic AI errors, and running results through a second AI tool to compare approaches and reasoning</li><li>First outside deployment: a business partner installed Meta-System, developed in a Linux VM, on Windows via Ubuntu on WSL2, and uses it to run her business; now evaluating it for resale as a purpose-built tool for sales professionals in her industry. Preparing a public beta release</li></ul>
+      <div class="job"><span>AI Foundations Lab</span><span class="dates">2026 – Present</span></div>
+      <ul><li>Developing a browser-based AI literacy course platform with a named AI instructor persona (Sabia), backed by the Lambda service above, guiding students through a structured module-unlock curriculum</li><li>Designed a hybrid delivery model with a live Sabia chat interface, platform-side artifact storage, student accounts, and dual-mode support for browser-based and local (Claude Desktop) tracks</li></ul>
+      <div class="job"><span>Portable Cloud Architecture</span><span class="dates">2024 – Present</span></div>
+      <ul><li>Operate a portable, self-managed Linux infrastructure environment for web hosting, development, AI experimentation, and remote access, modeled on the virtualization platform below</li><li>Run isolated experimental and testing VMs alongside primary work, with VM-level sandboxing protecting the host; serves as the operating environment for the Meta-System above</li></ul>
+      <div class="job"><span>Multi-Role Virtualization Platform</span><span class="dates">2021 – 2023</span></div>
+      <ul><li>Designed and deployed a private cloud environment using Linux virtualization, network segmentation, and self-hosted services to replicate enterprise infrastructure patterns</li><li>Provisioned a dedicated VM as a local file server and additional VMs for experimental and testing workloads, using VM-level sandboxing to contain configuration errors and failed installations</li><li>Configured physical and virtual network routing with emphasis on security, segmentation, and performance</li></ul>
+      <h3>Technical Training</h3>
+      <div class="job"><span>San Diego College of Continuing Education</span><span class="dates">2012 – 2020</span></div>
+      <p>Coursework: Cybersecurity, Linux Administration, Python Programming, Cisco Networking, MySQL Administration, Web Server Security, Virtual Datacenter Administration</p>
+      <div class="job"><span>A Cloud Guru (formerly Linux Academy)</span><span class="dates">2017 – 2019</span></div>
+      <p>Training: AWS Fundamentals, Linux System Administration, Systemd Administration, Kali Linux, Red Hat Systems Administration</p>
+      <div class="job"><span>Cisco Live – Dream Team</span><span class="dates">2015</span></div>
+      <p>Competitively selected from the Cisco Networking Academy student body for a week-long paid deployment supporting the Cisco Live Network Operation Center across 2,500,000 sq. ft. of convention and hotel space.</p><ul><li>Installed wireless access points and CAT5e infrastructure throughout the San Diego Convention Center and adjacent hotels, and supported live network operations under senior Cisco engineers</li></ul>
+    </section>
+    <section class="card qsec">
+      <h2>Alignment with the target bullets</h2>
+      <div class="tbl"><table><thead><tr><th>Area</th><th>Role</th><th>What this résumé shows</th><th>Status</th></tr></thead><tbody><tr><td>Infrastructure as Code</td><td>Cloud</td><td>Scripted AWS CLI deployment for Sabia; site rebuild via agent-driven AWS CLI; Terraform not yet</td><td class="st Partial">Partial</td></tr><tr><td>Kubernetes and containers</td><td>Cloud</td><td>Nothing to claim yet</td><td class="st Gap">Gap</td></tr><tr><td>CI/CD pipelines</td><td>Cloud</td><td>Nothing to claim yet</td><td class="st Gap">Gap</td></tr><tr><td>AWS architecture and security</td><td>Cloud</td><td>Production S3 / CloudFront / Route 53 / SES / Lambda; separate dev and prod accounts; MFA on root and all roles; dedicated agent roles; least-privilege IAM</td><td class="st Partial">Partial</td></tr><tr><td>Networking and identity</td><td>Cloud</td><td>DNS and domain lifecycle; segmentation; Cisco NOC</td><td class="st Partial">Partial</td></tr><tr><td>Observability</td><td>Cloud</td><td>Read-only cron monitor across every repo</td><td class="st Partial">Partial</td></tr><tr><td>Linux and scripting</td><td>Cloud</td><td>Self-managed Linux virtualization; Python and Bash; cron incident fixed and verified</td><td class="st Strong">Strong</td></tr><tr><td>Compliance and government</td><td>Cloud</td><td>US citizen; able to pass a background check; no clearance or framework work yet</td><td class="st Partial">Partial</td></tr><tr><td>Python and backend services</td><td>AI</td><td>asyncio + websockets server, pty terminals, streaming to the browser</td><td class="st Strong">Strong</td></tr><tr><td>LLM applications and agents</td><td>AI</td><td>40+ agent system with a first outside deployment; Lambda calling the Anthropic API; headless stream-json integration</td><td class="st Strong">Strong</td></tr><tr><td>Evaluation and quality</td><td>AI</td><td>Iterative feature testing; cross-checking output across AI tools; independent multi-agent review that reversed a decision; live rejection tests</td><td class="st Partial">Partial</td></tr><tr><td>Cloud and infrastructure for AI</td><td>AI</td><td>Sabia on AWS Lambda</td><td class="st Partial">Partial</td></tr><tr><td>AI coding tools</td><td>AI</td><td>Daily Claude Code practice with written governance, permission scoping, staged automation</td><td class="st Strong">Strong</td></tr><tr><td>Data pipelines</td><td>AI</td><td>SQLite schema design and live migration; generated exports, backups, integrity checks</td><td class="st Partial">Partial</td></tr><tr><td>Client-facing and leadership</td><td>AI</td><td>Launched a small-business AI consulting offering; partner deployment; led 6 direct reports at Vons</td><td class="st Partial">Partial</td></tr></tbody></table></div>
+    </section>
+    <section class="card qsec">
+      <h2>Gaps marked for evidence</h2>
+      <ul><li>Terraform, CloudFormation or CDK: not yet in use; required in all 8 confirmed cloud postings. Named as the next priority for the AWS work.</li><li>Kubernetes, containers and CI/CD pipelines: nothing to claim yet.</li><li>AWS security services (CloudTrail, GuardDuty, Security Hub, Config) and multi-account setups: not shown.</li><li>Monitoring stack (CloudWatch dashboards, Prometheus, Grafana): only the custom read-only monitor.</li><li>RAG, formal evaluation suites and LLM tracing tools: not shown.</li><li>Outcome numbers: users, time saved, or cost saved.</li><li>Certification exam dates: none scheduled yet.</li></ul>
+    </section>
+    <section class="card qsec">
+      <h2>What changed from draft 1</h2>
+      <ul><li>Summary adds how the work is built: AI as primary code author, with design, review, testing and fault diagnosis my own.</li><li>Languages line now states AI-assisted development (read, review, debug), replacing the <span class="ph">[CONFIRM]</span> marker.</li><li>New AWS security bullet: separate dev and prod accounts, MFA on root and all roles, dedicated agent roles.</li><li>AWS bullet now says how it was built: console first, then Claude Code driving the AWS CLI.</li><li>New Meta-System bullets: how AI output is validated, and the first outside deployment on Windows via WSL2, with a public beta in preparation.</li><li>Eligibility line added under the headline: citizenship, background check, remote / on-site / travel.</li><li>Consulting bullet reworded from delivering services to building and launching the offering, for accuracy.</li><li>Resolved markers removed: Illumanonymous, copies sold, certification dates. Terraform stays marked as an open gap.</li><li>Containers deliberately left off.</li></ul>
+    </section>
+  </div>
+
+  <div class="also-see">
+    Part of the <a href="job-search-kit.html">job search kit</a>: <a href="job-leads-cloud-infra.html">Cloud leads</a> · <a href="job-leads-ai-eng.html">AI leads</a> · <a href="resume-bullets.html">Résumé bullets</a> · <a href="resume-tailored.html">Tailored résumé v1</a> · <strong>Tailored résumé v2</strong> · <a href="recruiter-questions.html">Screening questions</a> · <a href="recruiter-follow-ups.html">Follow-up questions</a> · <a href="career-strategist-brief.html">Strategist brief</a>
+  </div>
+</div>
+
+</body>
+</html>
