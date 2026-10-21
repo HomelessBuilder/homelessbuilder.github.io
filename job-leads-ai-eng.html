@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Engineer Leads</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: job-board sweep, AI engineering</div>
+    <h1>Thirteen AI engineer openings</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. A broad sweep of AI Engineer type roles in the US (applied AI, agents, forward deployed, AI platform, AI evaluation), not filtered against any résumé. Postings found closed during the sweep were left out.</p>
+  </header>
+
+  <div class="legend">
+    <p><strong>How to read the cards:</strong> the three boxes show pay, experience asked for, and employment type. "Not listed" means the posting doesn't say.</p>
+    <div class="legend-row">
+      <span class="badge a">Confirmed</span>
+      <span><strong>Opened the posting directly</strong> (or read it from the employer's job-board feed) and saw it live, with its requirements.</span>
+    </div>
+    <div class="legend-row">
+      <span class="badge b">Listed</span>
+      <span><strong>Seen on a job board as posted within the last day</strong>, but the employer page didn't load for a direct check. Verify before applying.</span>
+    </div>
+  </div>
+
+  <div class="lead-list">
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">01</span>
+            <div class="role">AI Engineer, Agentic Systems</div>
+            <div class="company">Machinify</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$130K–$200K+</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">2–4 yrs</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Designing agent systems from scratch: Python, OpenAI Agents SDK / Anthropic SDK / LangGraph, evaluation-driven development, Claude Code or Codex fluency, Pydantic and JSON Schema structured outputs. A Master&#x27;s with no industry experience also qualifies.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/machinifyinc/jobs/4146862009" target="_blank" rel="noopener">Apply on Machinify&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">02</span>
+            <div class="role">Applied AI Engineer</div>
+            <div class="company">Future</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Continental US: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$215K–$250K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not stated</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time + equity</span></div>
+        </div>
+        <p>Python, LangChain / LangGraph or similar agent frameworks, LLM tool calling and structured output, Pydantic, async Python with SSE streaming, Langfuse for evaluation and tracing. Wants experience shipping services on large production systems.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/future/jobs/4745515005" target="_blank" rel="noopener">Apply on Future&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">03</span>
+            <div class="role">Forward Deployed AI Engineer</div>
+            <div class="company">Keyrus USA</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$135K–$155K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">5+ yrs</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Client-facing build role: Python or TypeScript (or Java / C#), AWS / Azure / GCP, REST APIs and enterprise integrations, LLM APIs with RAG or agents, Git, CI/CD, Docker / Kubernetes. Posted within the last day.</p>
+        <a class="apply-link" href="https://jobs.keyrus.consulting/jobs/8580539-forward-deployed-ai-engineer" target="_blank" rel="noopener">Apply on Keyrus&#x27; site ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">04</span>
+            <div class="role">Staff Software Engineer, AI Evals</div>
+            <div class="company">G2i Inc.</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$100–$200/hr</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">Staff level</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Contract, 20–40 hrs/wk</span></div>
+        </div>
+        <p>Not a production-code role: evaluating how coding agents such as Claude Code and Codex behave, judging reasoning quality and engineering taste, and writing opinionated feedback. Posted Oct 20.</p>
+        <a class="apply-link" href="https://jobs.ashbyhq.com/g2i/cc84c5e2-d15f-436a-8ccc-b97d813b77a5" target="_blank" rel="noopener">Apply on G2i&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">05</span>
+            <div class="role">Senior Software Engineer (Codex, Claude Code or Cursor)</div>
+            <div class="company">G2i Inc.</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote, worldwide</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$100–$200/hr</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">Senior+</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Contract, 10–20 hrs/wk</span></div>
+        </div>
+        <p>Same evaluation work as the AI Evals role at part-time hours: grading AI coding-agent interactions end to end and defining what a great interaction looks like. Posted Oct 15.</p>
+        <a class="apply-link" href="https://jobs.ashbyhq.com/g2i/5c430148-b681-4e94-b7bb-6c1bf712f6a3" target="_blank" rel="noopener">Apply on G2i&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">06</span>
+            <div class="role">Senior Software Engineer II, AI Platform</div>
+            <div class="company">Aledade</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">Pay</span><span class="level">Not listed</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">6+ yrs</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Healthcare. AWS, Kubernetes, containers, infrastructure as code, LLM model gateways (AWS Bedrock, Azure OpenAI, Vertex AI), observability with metrics, tracing and SLOs. Also asks for 3+ yrs coaching engineers.</p>
+        <a class="apply-link" href="https://jobs.lever.co/aledade/4436a7c6-cb76-486c-af61-c924b6cbf80f" target="_blank" rel="noopener">Apply on Aledade&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">07</span>
+            <div class="role">Senior AI Platform Governance Engineer</div>
+            <div class="company">NBCUniversal</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote (New York listing)</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$115K–$145K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">5+ yrs</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Data or cloud platform background: Python, advanced Snowflake SQL, AWS, Terraform, Snowflake Cortex or Databricks, Docker / Kubernetes. Accepting applications on a rolling basis.</p>
+        <a class="apply-link" href="https://jobs.smartrecruiters.com/nbcuniversal3/744000156421980-senior-ai-platform-governance-engineer" target="_blank" rel="noopener">Apply on SmartRecruiters ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">08</span>
+            <div class="role">Software Engineer, AI Data</div>
+            <div class="company">Speechify</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote (fully distributed company)</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$140K–$200K</span></div>
+          <div class="align-cell"><span class="label">Experience</span><span class="level">5+ yrs</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time + equity</span></div>
+        </div>
+        <p>Production data pipelines for AI: Python, Bash on Linux, backend development, large-scale data processing. GCP and Terraform are nice-to-haves. Posted in several state-specific copies; this is the California one.</p>
+        <a class="apply-link" href="https://job-boards.greenhouse.io/speechify/jobs/6229043004" target="_blank" rel="noopener">Apply on Speechify&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">09</span>
+            <div class="role">Member of Technical Staff, Applied AI</div>
+            <div class="company">GC AI</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">San Mateo, CA (remote flag set)</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$180K–$430K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time + equity</span></div>
+        </div>
+        <p>Legal-AI startup. Earlier listings described 5+ yrs software engineering with 2+ yrs on AI systems. Older posting (May 22) but still on the company&#x27;s live board.</p>
+        <a class="apply-link" href="https://jobs.ashbyhq.com/gc-ai/329e8968-ad7b-426a-9649-12cf5f454eb1" target="_blank" rel="noopener">Apply on GC AI&#x27;s board ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">10</span>
+            <div class="role">Data and AI Engineer</div>
+            <div class="company">RevStar</div>
+          </div>
+          <span class="badge a">Confirmed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in AZ, DC, FL, GA, IA, IL, ME, NY, NJ, SC, TX, VA</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell weak"><span class="label">Pay</span><span class="level">Not listed</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not listed</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time W2</span></div>
+        </div>
+        <p>Building a greenfield data lakehouse with AI on top. The posting page is live but the detailed requirements didn&#x27;t load.</p>
+        <a class="apply-link" href="https://www.revstarcareers.com/_/j/0C959318ED" target="_blank" rel="noopener">Apply on RevStar&#x27;s site ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">11</span>
+            <div class="role">Staff Applied AI Engineer</div>
+            <div class="company">Collectors</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">United States: remote</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$165.8K–$269.3K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Tagged lead level. Posted the day of this sweep.</p>
+        <a class="apply-link" href="https://collectorsuniverse.wd1.myworkdayjobs.com/collectors/job/us---remote/staff-applied-ai-engineer_jr106987-1" target="_blank" rel="noopener">Apply on Collectors&#x27; Workday ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">12</span>
+            <div class="role">Technical Lead, AI Application Development</div>
+            <div class="company">RTX</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in AZ, NC, MA, TX, VA</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$107.5K–$204.5K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Defense / aerospace. Tagged senior. Posted the day of this sweep.</p>
+        <a class="apply-link" href="https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/us-va-remote/technical-lead--ai-application-development_01883544" target="_blank" rel="noopener">Apply on RTX&#x27;s Workday ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="card-top-row">
+          <div>
+            <span class="index">13</span>
+            <div class="role">Principal AI Engineer</div>
+            <div class="company">Hewlett Packard Enterprise</div>
+          </div>
+          <span class="badge b">Listed</span>
+        </div>
+        <div class="loc-row">
+          <span class="pill remote">Remote in IL, NC, TX, WI</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="align-grid">
+          <div class="align-cell"><span class="label">Pay</span><span class="level">$157K–$361K</span></div>
+          <div class="align-cell weak"><span class="label">Experience</span><span class="level">Not checked</span></div>
+          <div class="align-cell"><span class="label">Type</span><span class="level">Full-time</span></div>
+        </div>
+        <p>Tagged lead level. Posted the day of this sweep.</p>
+        <a class="apply-link" href="https://hpe.wd5.myworkdayjobs.com/acjobsite/job/all-wisconsin-united-states-of-america/principal-ai-engineer_1215203" target="_blank" rel="noopener">Apply on HPE&#x27;s Workday ↗</a>
+      </div>
+    </article>
+
+  </div>
+
+  <footer class="memo-footer">
+    <p>Postings change fast. Cards marked Listed were not opened directly; Workday sites render client-side and couldn't be read. Pay figures come from the posting or the job board that listed it.</p>
+    <p>Checked and left out because they were already closed or gone from the employer's board: Beacon Hill AI Engineer (San Diego contract-to-hire), Hatch AI Engineer, AI Agents.</p>
+  </footer>
+
+  <div class="also-see">
+    Other lists: <a href="job-leads-cloud-infra.html">cloud infrastructure</a> · <a href="job-leads.html">roles spanning all three certifications</a> · <a href="job-leads-sd.html">San Diego list</a>
+  </div>
+</div>
+
+</body>
+</html>
