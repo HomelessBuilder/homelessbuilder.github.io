@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Qualified Candidate Bullets</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+<style>
+  .qsec { padding: 1.1rem; }
+  .qsec h2 { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .qsec .src { font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 0.6rem; }
+  .qsec .src a { color: var(--accent-ink); font-weight: 700; }
+  .qsec h3 { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 1.1rem 0 0.35rem; display: flex; justify-content: space-between; gap: 0.5rem; }
+  .qsec h3 .count { font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
+  .qsec ul { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; }
+  .qsec li { margin-bottom: 0.45rem; }
+  .summary { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 0.98rem; border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 0.8rem; margin: 0.4rem 0 0; }
+  .skills { font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+  .ph { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-radius: 4px; padding: 0 0.2rem; }
+  .notes { margin-top: 1rem; background: var(--accent-soft); border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .notes p { margin: 0 0 0.5rem; }
+  .notes p:last-child { margin: 0; }
+  .notes strong { color: var(--accent-ink); }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: résumé reference</div>
+    <h1>What a qualified candidate's résumé looks like</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. Composite bullet points for Cloud Infrastructure Engineer and AI Engineer roles, drawn from the requirements in the two job-lead lists. Highlighted <span class="ph">[brackets]</span> are placeholders for a real candidate's own figures. Counts show how many postings asked for each area.</p>
+  </header>
+
+  <div class="lead-list">
+    <section class="card qsec">
+      <h2>Cloud Infrastructure Engineer</h2>
+      <p class="src">Built from the 8 confirmed postings on the cloud infrastructure lead list. The 6 listed-only roles weren&#x27;t opened, so they aren&#x27;t reflected. <a href="job-leads-cloud-infra.html">See the lead list</a>.</p>
+      <h3>Summary line</h3>
+      <p class="summary">Cloud infrastructure engineer with <span class="ph">[6+]</span> years building and running production AWS and Kubernetes environments as code, with security and compliance built into the platform from the start.</p>
+      <h3><span>Infrastructure as Code</span><span class="count">all 8</span></h3>
+      <ul>
+        <li>Wrote and maintained Terraform modules provisioning <span class="ph">[VPCs, EKS clusters, IAM, RDS]</span> across <span class="ph">[N]</span> AWS accounts, replacing manual console changes and cutting environment build time from <span class="ph">[days]</span> to <span class="ph">[hours]</span></li>
+        <li>Automated server configuration and patching with Ansible across <span class="ph">[N]</span> Linux and Windows hosts</li>
+      </ul>
+      <h3><span>Kubernetes and containers</span><span class="count">6 of 8</span></h3>
+      <ul>
+        <li>Designed and operated production Kubernetes clusters (EKS, OpenShift) running <span class="ph">[N]</span> services, packaged with Helm and deployed through GitOps with Argo CD</li>
+        <li>Containerized <span class="ph">[N]</span> legacy applications with Docker and migrated them onto Kubernetes with zero downtime</li>
+      </ul>
+      <h3><span>CI/CD pipelines</span><span class="count">6 of 8</span></h3>
+      <ul>
+        <li>Designed GitLab CI and GitHub Actions pipelines covering build, test, security scan and deploy, cutting release time from <span class="ph">[X]</span> to <span class="ph">[Y]</span></li>
+        <li>Managed build artifacts and container images in Artifactory and Amazon ECR</li>
+      </ul>
+      <h3><span>AWS architecture and security</span><span class="count">6 of 8</span></h3>
+      <ul>
+        <li>Built multi-account AWS environments with AWS Organizations, service control policies (SCPs) and least-privilege IAM roles</li>
+        <li>Turned on and tuned CloudTrail, GuardDuty, Security Hub and AWS Config, fixing <span class="ph">[N]</span> high-severity findings</li>
+        <li>Designed VPC networking: subnets, security groups, network ACLs, Transit Gateway, VPN and Direct Connect to on-premises networks</li>
+      </ul>
+      <h3><span>Networking and identity</span><span class="count">4 of 8</span></h3>
+      <ul>
+        <li>Managed DNS, routing and site-to-site VPN between cloud and on-premises networks</li>
+        <li>Set up single sign-on (SSO) by federating Entra ID / Active Directory into the cloud using SAML and OIDC</li>
+      </ul>
+      <h3><span>Observability</span><span class="count">4 of 8</span></h3>
+      <ul>
+        <li>Built monitoring and alerting with CloudWatch, Prometheus and Grafana (or Datadog), cutting mean time to resolve incidents by <span class="ph">[X%]</span></li>
+        <li>Ran capacity planning and cost reviews that saved $<span class="ph">[X]</span> a year</li>
+      </ul>
+      <h3><span>Linux and scripting</span><span class="count">all 8</span></h3>
+      <ul>
+        <li>Administered RHEL and Ubuntu fleets of <span class="ph">[N]</span> hosts, hardened against CIS Benchmarks and DISA STIGs</li>
+        <li>Wrote Python and Bash tooling to automate <span class="ph">[provisioning, backups, compliance reports]</span></li>
+      </ul>
+      <h3><span>Compliance and government</span><span class="count">4 of 8</span></h3>
+      <ul>
+        <li>Supported FedRAMP / NIST 800-53 controls in AWS GovCloud, including air-gapped deployments</li>
+        <li>Held a <span class="ph">[Public Trust / Secret / TS/SCI]</span> clearance</li>
+      </ul>
+      <h3><span>Client-facing work</span><span class="count">GuidePoint, contract roles</span></h3>
+      <ul>
+        <li>Ran cloud security assessments for <span class="ph">[N]</span> clients and delivered written findings, remediation plans and architecture diagrams</li>
+      </ul>
+      <h3>Skills section</h3>
+      <p class="skills">AWS (EC2, S3, VPC, IAM, EKS, EFS, CloudWatch), Azure, GCP, OCI · Terraform, CloudFormation, Ansible · Kubernetes, Docker, Helm, Argo CD, OpenShift · GitLab CI, GitHub Actions · Prometheus, Grafana, Datadog · Python, Bash, Go · Linux (RHEL, Ubuntu), Windows Server</p>
+      <div class="notes">
+        <p><strong>Certifications named:</strong> Required somewhere: AWS Cloud Practitioner (GuidePoint), Security+ (Marlin). Preferred: AWS Solutions Architect Associate, AWS Security Specialty, CCSK. Common in the field though none of these 8 named them: CKA, HashiCorp Terraform Associate.</p>
+        <p><strong>Experience:</strong> Most ask for 3 to 8 years. GuidePoint is the exception: it accepts 1 year, and hands-on labs count toward it.</p>
+      </div>
+    </section>
+    <section class="card qsec">
+      <h2>AI Engineer</h2>
+      <p class="src">Built from the 9 confirmed postings on the AI engineering lead list that showed requirements. RevStar&#x27;s requirements didn&#x27;t load and the 3 Workday listings weren&#x27;t opened. <a href="job-leads-ai-eng.html">See the lead list</a>.</p>
+      <h3>Summary line</h3>
+      <p class="summary">AI engineer with <span class="ph">[N]</span> years of software experience who builds production LLM and agent systems, measures their quality with evaluations, and deploys them on cloud infrastructure.</p>
+      <h3><span>Python and backend services</span><span class="count">6 of 9</span></h3>
+      <ul>
+        <li>Built async Python services in FastAPI that stream LLM responses to clients over server-sent events (SSE), serving <span class="ph">[N]</span> requests a day at a p95 latency of <span class="ph">[X ms]</span></li>
+        <li>Wrote typed, tested Python with Pydantic models enforcing contracts between services and LLM outputs</li>
+      </ul>
+      <h3><span>LLM applications and agents</span><span class="count">5 of 9</span></h3>
+      <ul>
+        <li>Designed and shipped a multi-step agent system with <span class="ph">[LangGraph / Anthropic SDK / OpenAI Agents SDK]</span> that automated <span class="ph">[workflow]</span>, cutting manual handling time by <span class="ph">[X%]</span></li>
+        <li>Built tool-calling agents that return structured output validated against JSON Schema, reducing malformed responses to under <span class="ph">[X%]</span></li>
+        <li>Built retrieval-augmented generation (RAG) pipelines over <span class="ph">[N]</span> documents, including chunking, embeddings, hybrid search and reranking, raising answer accuracy from <span class="ph">[X]</span> to <span class="ph">[Y]</span> on an internal benchmark</li>
+      </ul>
+      <h3><span>Evaluation and quality</span><span class="count">4 of 9</span></h3>
+      <ul>
+        <li>Set up evaluation-driven development: golden datasets, LLM-as-judge scoring and regression evals in CI, so a prompt or model change ships only if its scores hold</li>
+        <li>Instrumented LLM calls with <span class="ph">[Langfuse / OpenTelemetry]</span> tracing to track cost, latency and failure modes per request</li>
+        <li>Wrote rubrics for grading AI output quality and calibrated them across <span class="ph">[N]</span> reviewers</li>
+      </ul>
+      <h3><span>Cloud, containers and infrastructure</span><span class="count">4 of 9</span></h3>
+      <ul>
+        <li>Deployed AI services on <span class="ph">[AWS / GCP]</span> with Docker and Kubernetes, managed through Terraform</li>
+        <li>Built a model gateway in front of <span class="ph">[AWS Bedrock / Azure OpenAI / Vertex AI]</span> with routing, fallback, rate limiting and per-team cost tracking</li>
+        <li>Defined service-level objectives (SLOs) and dashboards covering metrics, tracing and alerting for production AI endpoints</li>
+      </ul>
+      <h3><span>AI coding tools</span><span class="count">3 of 9</span></h3>
+      <ul>
+        <li>Used Claude Code / Codex / Cursor daily in development and set team conventions for agent-assisted work: <span class="ph">[review gates, context files, task scoping]</span></li>
+      </ul>
+      <h3><span>Data pipelines</span><span class="count">2 of 9</span></h3>
+      <ul>
+        <li>Built production data pipelines processing <span class="ph">[N TB / N records a day]</span> to prepare training and retrieval data in Python, SQL and <span class="ph">[Snowflake / Databricks]</span></li>
+        <li>Set up data governance for AI platforms: access controls, lineage, and audit trails for model inputs</li>
+      </ul>
+      <h3><span>Client-facing and leadership</span><span class="count">2 of 9</span></h3>
+      <ul>
+        <li>Embedded with <span class="ph">[N]</span> enterprise clients as a forward deployed engineer, integrating LLM features with their systems over REST APIs and taking projects from discovery to production</li>
+        <li>Mentored <span class="ph">[N]</span> engineers and led technical design reviews for AI platform work</li>
+      </ul>
+      <h3>Skills section</h3>
+      <p class="skills">Python (async, FastAPI, Pydantic), TypeScript · Anthropic, OpenAI, Bedrock and Vertex APIs · LangGraph, LangChain, OpenAI Agents SDK · RAG, embeddings, vector databases · evals, LLM-as-judge, Langfuse · Docker, Kubernetes, Terraform · AWS, GCP, Azure · SQL, Snowflake, Databricks · Git, CI/CD · Claude Code, Codex, Cursor</p>
+      <div class="notes">
+        <p><strong>Experience:</strong> 5 to 6 or more years of software engineering in most. Exceptions: Machinify accepts 2 to 4 years, or a Master&#x27;s with no industry experience; the G2i contracts want senior-level judgment rather than a set number of years.</p>
+        <p><strong>Certifications:</strong> None of the 9 postings asks for one. Shipped systems and inspectable work (GitHub repos, demos) carry the weight.</p>
+        <p><strong>What separates candidates:</strong> Evaluation work and production deployment. Many candidates have built an agent demo. Fewer can show evals, tracing and uptime for an AI system in production.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="also-see">
+    Related: <a href="recruiter-questions.html">recruiter screening questions</a> · <a href="job-leads-cloud-infra.html">cloud infrastructure leads</a> · <a href="job-leads-ai-eng.html">AI engineering leads</a>
+  </div>
+</div>
+
+</body>
+</html>
