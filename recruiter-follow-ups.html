@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Recruiter Follow-Up Questions</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+<style>
+  .qsec { padding: 1.1rem; }
+  .qsec h2 { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .qsec .src { font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 0.6rem; }
+  .qsec ol { margin: 0; padding-left: 1.6rem; font-size: 0.9rem; }
+  .qsec ul { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; }
+  .qsec li { margin-bottom: 0.7rem; }
+  .qsec li strong { display: block; color: var(--ink); }
+  .qsec li span { color: var(--ink-soft); }
+  .qsec li span::before { content: "Why they ask: "; font-weight: 600; color: var(--accent-ink); }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: interview preparation</div>
+    <h1>Recruiter follow-up questions</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. The screening questions cover any candidate. These are the follow-ups a recruiter asks when a background is mostly self-employment, a founded company, or independent projects built with AI tools, for Cloud Infrastructure Engineer and AI Engineer roles.</p>
+  </header>
+
+  <div class="lead-list">
+    <section class="card qsec">
+      <h2>Verifying the experience</h2>
+      <p class="src">Recruiters can&#x27;t call a former manager when the candidate was the company, so they verify by asking.</p>
+      <ol start="1">
+        <li><strong>Was this role paid employment, a contract, or your own company?</strong><span>Founder and self-titled roles are common, and recruiters have to classify them correctly before comparing a candidate to the posting&#x27;s years-of-experience line.</span></li>
+        <li><strong>Who else worked on it, and who used it?</strong><span>Separates a solo lab from a production system other people depended on.</span></li>
+        <li><strong>Do you have paying customers or revenue?</strong><span>An outside party paying is the strongest proof the work met a real bar.</span></li>
+        <li><strong>Is it running now? Can you walk me through it?</strong><span>Live systems and a confident walkthrough beat any description on paper.</span></li>
+      </ol>
+    </section>
+    <section class="card qsec">
+      <h2>Credentials and eligibility</h2>
+      <p class="src">These are often hard filters, decided before skills are discussed.</p>
+      <ol start="5">
+        <li><strong>Your résumé lists certifications as in progress. Which have you passed, and when is your next exam?</strong><span>&quot;In progress&quot; without a date reads as unverified, and some postings require a specific certification outright.</span></li>
+        <li><strong>Are you a US citizen, and are you eligible for a security clearance?</strong><span>Government and defense roles can&#x27;t waive this, so it&#x27;s asked early.</span></li>
+        <li><strong>What compensation are you targeting, and would you consider contract work?</strong><span>Checks fit against the budget and whether a contract-to-hire path is open.</span></li>
+        <li><strong>Are you open to on-site work, relocation, or travel?</strong><span>Many infrastructure roles, especially cleared ones, are on-site or carry travel.</span></li>
+      </ol>
+    </section>
+    <section class="card qsec">
+      <h2>Depth behind the tool list</h2>
+      <p class="src">Skills sections list tools. These questions test how deep the experience goes.</p>
+      <ol start="9">
+        <li><strong>Did you define your infrastructure as code, or build it by hand?</strong><span>Infrastructure as code appears in nearly every cloud posting; console-built environments signal a different level.</span></li>
+        <li><strong>How is access controlled in your cloud account?</strong><span>A quick test of security habits: root account protection, MFA, roles instead of shared keys.</span></li>
+        <li><strong>Have you run containers or Kubernetes, even in a lab?</strong><span>Most cloud and AI platform roles assume container fluency.</span></li>
+        <li><strong>Walk me through an outage you diagnosed and fixed.</strong><span>Shows troubleshooting method and ownership, not just building.</span></li>
+      </ol>
+    </section>
+    <section class="card qsec">
+      <h2>Working with AI tools</h2>
+      <p class="src">Increasingly standard for any candidate, and central for AI engineering roles.</p>
+      <ol start="13">
+        <li><strong>How much of this code did you write, and how much did an AI tool write?</strong><span>Recruiters want an honest split, not a number that sounds good.</span></li>
+        <li><strong>Could you debug and change it without the AI tool?</strong><span>Tests whether the candidate understands the system or only directed its creation.</span></li>
+        <li><strong>How do you know the AI&#x27;s output is right?</strong><span>Review discipline, tests and evaluations are what separate production AI work from demos.</span></li>
+        <li><strong>Has anyone besides you installed or used what you built?</strong><span>Outside users surface problems a builder never sees, and recruiters know it.</span></li>
+        <li><strong>What&#x27;s the scale, and can you put a number on any result?</strong><span>Projects, users, requests, time saved, time to ship: numbers make claims checkable.</span></li>
+      </ol>
+    </section>
+    <section class="card qsec">
+      <h2>Answering them well</h2>
+      <ul>
+        <li>Answer with specifics: names of services, counts, dates.</li>
+        <li>Give the honest split between your work and an AI tool&#x27;s; then show you understand the result.</li>
+        <li>Offer something they can look at: a repo, a live link, a short demo.</li>
+        <li>Have a date for every certification marked in progress, or remove it.</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="also-see">
+    Part of the <a href="job-search-kit.html">job search kit</a>: <a href="job-leads-cloud-infra.html">Cloud leads</a> · <a href="job-leads-ai-eng.html">AI leads</a> · <a href="resume-bullets.html">Résumé bullets</a> · <a href="recruiter-questions.html">Screening questions</a> · <strong>Follow-up questions</strong>
+  </div>
+</div>
+
+</body>
+</html>
