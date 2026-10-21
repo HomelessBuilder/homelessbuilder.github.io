@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Kit</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+<style>
+  .kit-card { display: block; padding: 1.1rem; text-decoration: none; }
+  .kit-card:hover { border-color: var(--accent); }
+  .kit-card:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+  .kit-card .step { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+  .kit-card .role { margin-top: 0.25rem; }
+  .kit-card p { margin: 0.4rem 0 0.7rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .kit-card .go { font-size: 0.88rem; font-weight: 700; color: var(--accent-ink); }
+  .pair { display: grid; gap: 1.1rem; }
+  @media (min-width: 640px) { .pair { grid-template-columns: 1fr 1fr; } }
+  .group-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin: 0.6rem 0 -0.4rem; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: job search kit</div>
+    <h1>Cloud infrastructure and AI engineering roles</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. Four linked pages: who is hiring, what those postings ask for, and how a recruiter will check it. Use them in order, or jump to the one you need.</p>
+  </header>
+
+  <div class="lead-list">
+    <div class="group-label">1 · Who is hiring</div>
+    <div class="pair">
+      <a class="card kit-card" href="job-leads-cloud-infra.html">
+        <span class="step">14 openings</span>
+        <div class="role">Cloud infrastructure leads</div>
+        <p>US roles from associate to staff level: AWS, Kubernetes, Terraform, plus several cleared and government-adjacent positions. Each card shows pay, experience and clearance.</p>
+        <span class="go">Open the list →</span>
+      </a>
+      <a class="card kit-card" href="job-leads-ai-eng.html">
+        <span class="step">13 openings</span>
+        <div class="role">AI engineering leads</div>
+        <p>Applied AI, agent systems, forward deployed, AI platform, and AI evaluation contracts. Each card shows pay, experience and employment type.</p>
+        <span class="go">Open the list →</span>
+      </a>
+    </div>
+
+    <div class="group-label">2 · What they ask for</div>
+    <a class="card kit-card" href="resume-bullets.html">
+      <span class="step">Both roles</span>
+      <div class="role">What a qualified candidate's résumé looks like</div>
+      <p>Composite résumé bullets built from the postings' requirements, grouped by area and ranked by how many postings asked for each. Placeholders mark where real figures go.</p>
+      <span class="go">See the bullets →</span>
+    </a>
+
+    <div class="group-label">3 · How they'll check it</div>
+    <a class="card kit-card" href="recruiter-questions.html">
+      <span class="step">44 questions</span>
+      <div class="role">Recruiter screening questions</div>
+      <p>The questions a recruiter is likely to ask to test those bullets, with what they listen for and the answers that raise red flags.</p>
+      <span class="go">See the questions →</span>
+    </a>
+  </div>
+
+  <footer class="memo-footer">
+    <p>Postings change fast; each lead list notes which links were opened directly and which were only seen on a job board. Earlier lists: <a href="job-leads.html">roles spanning all three certifications</a> · <a href="job-leads-sd.html">San Diego list</a>.</p>
+  </footer>
+</div>
+
+</body>
+</html>
