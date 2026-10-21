@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Recruiter Screening Questions</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --paper-raised: #1b201c;
+      --ink: #eceee9;
+      --ink-soft: #a8b0a8;
+      --line: #33392f;
+      --line-strong: #454c3f;
+      --accent: #6fbdad;
+      --accent-ink: #cdeee5;
+      --accent-soft: #1e2b26;
+      --confirm-a-bg: #1c2a19;
+      --confirm-a-ink: #9bd28f;
+      --confirm-a-line: #35492f;
+      --confirm-b-bg: #2c2410;
+      --confirm-b-ink: #e3c473;
+      --confirm-b-line: #4a3c1c;
+      --onsite-bg: #2f1e1c;
+      --onsite-ink: #e29892;
+      --onsite-line: #4f2f2b;
+      --remote-bg: #241f31;
+      --remote-ink: #bcaee0;
+      --remote-line: #3b3350;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815;
+    --paper-raised: #1b201c;
+    --ink: #eceee9;
+    --ink-soft: #a8b0a8;
+    --line: #33392f;
+    --line-strong: #454c3f;
+    --accent: #6fbdad;
+    --accent-ink: #cdeee5;
+    --accent-soft: #1e2b26;
+    --confirm-a-bg: #1c2a19;
+    --confirm-a-ink: #9bd28f;
+    --confirm-a-line: #35492f;
+    --confirm-b-bg: #2c2410;
+    --confirm-b-ink: #e3c473;
+    --confirm-b-line: #4a3c1c;
+    --onsite-bg: #2f1e1c;
+    --onsite-ink: #e29892;
+    --onsite-line: #4f2f2b;
+    --remote-bg: #241f31;
+    --remote-ink: #bcaee0;
+    --remote-line: #3b3350;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #ffffff;
+    --ink: #1b1f1d;
+    --ink-soft: #4a524c;
+    --line: #d3d8d2;
+    --line-strong: #b7bdb4;
+    --accent: #2b6e63;
+    --accent-ink: #0f2f2a;
+    --accent-soft: #dbe8e4;
+    --confirm-a-bg: #dcecd9;
+    --confirm-a-ink: #2c5c26;
+    --confirm-a-line: #a8cca0;
+    --confirm-b-bg: #f4ead2;
+    --confirm-b-ink: #7a5a18;
+    --confirm-b-line: #dcc588;
+    --onsite-bg: #f3e0de;
+    --onsite-ink: #7d3330;
+    --onsite-line: #dcaba6;
+    --remote-bg: #e2dfee;
+    --remote-ink: #453a75;
+    --remote-line: #bdb5d8;
+    --shadow: 0 1px 2px rgba(20, 26, 22, 0.06), 0 6px 20px -8px rgba(20, 26, 22, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  header.memo {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .memo-sub {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .legend p { margin: 0; }
+  .legend p strong { color: var(--ink); }
+
+  .legend-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .legend-row strong { color: var(--ink); }
+
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+    margin-top: 0.05rem;
+  }
+
+  .badge.a { background: var(--confirm-a-bg); color: var(--confirm-a-ink); border-color: var(--confirm-a-line); }
+  .badge.b { background: var(--confirm-b-bg); color: var(--confirm-b-ink); border-color: var(--confirm-b-line); }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-head {
+    padding: 1.1rem 1.1rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .index {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .role {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .loc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    background: var(--paper);
+  }
+
+  .pill.remote { background: var(--remote-bg); color: var(--remote-ink); border-color: var(--remote-line); }
+  .pill.onsite { background: var(--onsite-bg); color: var(--onsite-ink); border-color: var(--onsite-line); }
+
+  .card-body {
+    padding: 0.95rem 1.1rem 1.1rem;
+  }
+
+  .align-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .align-cell {
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.3rem;
+    background: var(--paper);
+  }
+
+  .align-cell .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .align-cell .level {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+
+  .align-cell.weak .level { color: var(--ink-soft); font-weight: 600; }
+
+  .card-body p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .card-body p strong { color: var(--ink); }
+
+  .apply-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .apply-link:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  footer.memo-footer {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  footer.memo-footer p { margin: 0 0 0.6rem; }
+  footer.memo-footer p:last-child { margin-bottom: 0; }
+
+  .also-see {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  .also-see a {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+  }
+
+  a { color: inherit; }
+
+  @media (min-width: 640px) {
+    .sheet { padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+<style>
+  .qsec { padding: 1.1rem; }
+  .qsec h2 { font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .qsec .src { font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 0.6rem; }
+  .qsec .src a { color: var(--accent-ink); font-weight: 700; }
+  .qsec h3 { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 1rem 0 0.35rem; }
+  .qsec ol { margin: 0; padding-left: 1.6rem; font-size: 0.9rem; }
+  .qsec li { margin-bottom: 0.45rem; }
+  .qsec li::marker { color: var(--ink-soft); font-size: 0.8rem; }
+  .listen { margin-top: 0.9rem; background: var(--accent-soft); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .listen strong { color: var(--accent-ink); }
+  .qsec ul { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <header class="memo">
+    <div class="eyebrow">Career: interview preparation</div>
+    <h1>Recruiter screening questions</h1>
+    <p class="memo-sub">Prepared Oct 21, 2026. Questions a recruiter might ask to judge fit for Cloud Infrastructure Engineer and AI Engineer roles, drawn from the requirements in the two job-lead lists. Recruiters are usually not engineers, so most questions probe for specifics they can check: scale, tools, outcomes, and what the candidate personally did.</p>
+  </header>
+
+  <div class="lead-list">
+    <section class="card qsec">
+      <h2>Both roles: screening</h2>
+      <ol start="1">
+        <li>How many years have you worked in this area full-time, and how much of that was production work rather than labs or side projects?</li>
+        <li>Are you looking for full-time, contract, or either? Remote, hybrid, or on-site?</li>
+        <li>What compensation range are you targeting?</li>
+        <li>Do you need visa sponsorship now or in the future?</li>
+        <li>Walk me through your most recent role: what did you own, and who relied on your work?</li>
+        <li>Tell me about a project you&#x27;re proud of. What was your part, and what was the team&#x27;s?</li>
+        <li>Can you share anything I can look at, such as GitHub, a portfolio, a live demo, or a write-up?</li>
+      </ol>
+      <div class="listen"><strong>Listening for:</strong> Answers that are concrete and consistent, and clearly separate what the candidate did from what the team did.</div>
+    </section>
+    <section class="card qsec">
+      <h2>Cloud Infrastructure Engineer</h2>
+      <p class="src">From the requirements in <a href="job-leads-cloud-infra.html">this lead list</a>.</p>
+      <h3>Infrastructure as Code</h3>
+      <ol start="8">
+        <li>What have you built with Terraform (or CloudFormation or CDK)? About how many resources or accounts did it manage?</li>
+        <li>How did you organize your Terraform: modules, state storage, separate environments?</li>
+        <li>Have you ever had to fix infrastructure that was changed by hand outside the code? How did you handle it?</li>
+      </ol>
+      <h3>Kubernetes and containers</h3>
+      <ol start="11">
+        <li>Have you run Kubernetes in production? Was it managed (EKS, AKS, GKE) or self-hosted, and about how many services ran on it?</li>
+        <li>How did applications get deployed to the cluster: Helm, Argo CD, something else?</li>
+      </ol>
+      <h3>CI/CD</h3>
+      <ol start="13">
+        <li>Describe a pipeline you designed. What stages did it have, and what did it improve?</li>
+      </ol>
+      <h3>AWS architecture and security</h3>
+      <ol start="14">
+        <li>Which AWS services have you used hands-on, not just read about?</li>
+        <li>Have you set up a multi-account AWS environment? How did you control access across accounts?</li>
+        <li>Which security services have you configured, such as GuardDuty, Security Hub, Config or CloudTrail? What did you do with the findings?</li>
+        <li>How have you connected cloud networks to on-premises networks: VPN, Direct Connect, Transit Gateway?</li>
+      </ol>
+      <h3>Networking and identity</h3>
+      <ol start="18">
+        <li>Have you set up single sign-on into a cloud environment from a corporate identity provider like Entra ID or Okta?</li>
+        <li>Tell me about a DNS or routing problem you had to troubleshoot.</li>
+      </ol>
+      <h3>Observability and operations</h3>
+      <ol start="20">
+        <li>What monitoring stack have you run, and what did you alert on?</li>
+        <li>Tell me about a production incident you worked on: what broke, what you did, and what changed afterward.</li>
+        <li>Have you been on an on-call rotation?</li>
+      </ol>
+      <h3>Linux and scripting</h3>
+      <ol start="23">
+        <li>How many Linux servers have you managed, and which distributions?</li>
+        <li>What&#x27;s something you automated with Python or Bash that saved real time?</li>
+      </ol>
+      <h3>Compliance and government</h3>
+      <ol start="25">
+        <li>Do you hold a security clearance (Public Trust, Secret, TS/SCI), or can you obtain one?</li>
+        <li>Have you worked under FedRAMP, NIST 800-53, STIGs or CIS Benchmarks?</li>
+        <li>Which certifications do you hold, and which are in progress? When do you expect to finish them?</li>
+      </ol>
+      <div class="listen"><strong>Listening for:</strong> Numbers (accounts, servers, services), real incidents they lived through, and whether &quot;I built&quot; actually means &quot;I maintained what someone else built.&quot;</div>
+    </section>
+    <section class="card qsec">
+      <h2>AI Engineer</h2>
+      <p class="src">From the requirements in <a href="job-leads-ai-eng.html">this lead list</a>.</p>
+      <h3>Python and backend</h3>
+      <ol start="28">
+        <li>What&#x27;s your main language? What have you built in it that&#x27;s running in production?</li>
+        <li>Have you built services that stream LLM output to users? How did you handle latency and errors?</li>
+      </ol>
+      <h3>LLM applications and agents</h3>
+      <ol start="30">
+        <li>Describe an agent or LLM feature you built from start to finish. What problem did it solve, and who used it?</li>
+        <li>Which frameworks or SDKs have you used (LangGraph, Anthropic SDK, OpenAI Agents SDK)? Why did you choose them?</li>
+        <li>How did you make the model&#x27;s output reliable enough for other systems to use, for example structured output or schema validation?</li>
+        <li>Have you built a RAG system? What made the answers better or worse?</li>
+      </ol>
+      <h3>Evaluation and quality</h3>
+      <ol start="34">
+        <li>How did you know your AI system was working? What did you measure?</li>
+        <li>Have you built an evaluation suite? What was in it, and how did it affect what shipped?</li>
+        <li>How did you catch it when a prompt or model change made things worse?</li>
+        <li>How have you traced or monitored LLM calls in production for cost, latency and failures?</li>
+      </ol>
+      <h3>Cloud and infrastructure for AI</h3>
+      <ol start="38">
+        <li>How was your AI system deployed: which cloud, containers or not, infrastructure as code or not?</li>
+        <li>Have you worked with model gateways or managed AI services like Bedrock, Azure OpenAI or Vertex AI?</li>
+      </ol>
+      <h3>AI coding tools</h3>
+      <ol start="40">
+        <li>How do you use Claude Code, Codex or Cursor day to day?</li>
+        <li>Tell me about a time an AI coding tool gave you something wrong or misleading. How did you catch it? (Central for the G2i evaluation roles.)</li>
+      </ol>
+      <h3>Data</h3>
+      <ol start="42">
+        <li>Have you built data pipelines that feed AI systems? What volume, and what tools?</li>
+      </ol>
+      <h3>Client-facing and leadership</h3>
+      <ol start="43">
+        <li>Have you worked directly with clients or business stakeholders to scope and deliver an AI project?</li>
+        <li>Have you mentored engineers or led design reviews?</li>
+      </ol>
+      <div class="listen"><strong>Listening for:</strong> Real users and real results rather than demos, evaluations rather than gut feel, and an honest account of what didn&#x27;t work.</div>
+    </section>
+    <section class="card qsec">
+      <h2>Answers that raise red flags</h2>
+      <p class="src">Apply to both roles.</p>
+      <ul>
+        <li>Only tool names, no outcomes (&quot;I used Terraform, Kubernetes, LangChain&quot;)</li>
+        <li>No numbers at all for scale or impact</li>
+        <li>&quot;We&quot; for everything and never &quot;I&quot;</li>
+        <li>Every project is a tutorial, course lab or unfinished demo</li>
+        <li>Can&#x27;t describe a failure or incident</li>
+        <li>Certifications listed as &quot;in progress&quot; with no expected completion date</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="also-see">
+    Lead lists: <a href="job-leads-cloud-infra.html">cloud infrastructure</a> · <a href="job-leads-ai-eng.html">AI engineering</a>
+  </div>
+</div>
+
+</body>
+</html>
